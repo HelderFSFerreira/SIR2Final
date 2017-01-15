@@ -1,0 +1,205 @@
+﻿-- phpMyAdmin SQL Dump
+-- version 4.5.1
+-- http://www.phpmyadmin.net
+--
+-- Host: 127.0.0.1
+-- Generation Time: 15-Jan-2017 às 20:53
+-- Versão do servidor: 10.1.19-MariaDB
+-- PHP Version: 5.6.28
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `sir`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `music`
+--
+
+CREATE TABLE `music` (
+  `id` int(11) NOT NULL,
+  `owner` int(11) NOT NULL,
+  `name` varchar(200) DEFAULT NULL,
+  `namedisc` varchar(200) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `musicplaylist`
+--
+
+CREATE TABLE `musicplaylist` (
+  `idmusic` int(11) NOT NULL,
+  `idplaylist` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `playlist`
+--
+
+CREATE TABLE `playlist` (
+  `id` int(11) NOT NULL,
+  `owner` int(11) NOT NULL,
+  `name` varchar(200) DEFAULT NULL,
+  `datecreation` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `playlistusers`
+--
+
+CREATE TABLE `playlistusers` (
+  `idplaylist` int(11) NOT NULL,
+  `iduser` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `users`
+--
+
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
+  `username` varchar(100) DEFAULT NULL,
+  `password` varchar(200) DEFAULT NULL,
+  `name` varchar(500) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `users`
+--
+
+INSERT INTO `users` (`id`, `username`, `password`, `name`) VALUES
+(1, 'helder', 'helder', 'Helder Filipe da Silva Ferreira');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `usersmusic`
+--
+
+CREATE TABLE `usersmusic` (
+  `idmusic` int(11) NOT NULL,
+  `idusers` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `music`
+--
+ALTER TABLE `music`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `owner` (`owner`);
+
+--
+-- Indexes for table `musicplaylist`
+--
+ALTER TABLE `musicplaylist`
+  ADD PRIMARY KEY (`idmusic`,`idplaylist`),
+  ADD KEY `idplaylist` (`idplaylist`);
+
+--
+-- Indexes for table `playlist`
+--
+ALTER TABLE `playlist`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `owner` (`owner`);
+
+--
+-- Indexes for table `playlistusers`
+--
+ALTER TABLE `playlistusers`
+  ADD PRIMARY KEY (`idplaylist`,`iduser`),
+  ADD KEY `iduser` (`iduser`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `usersmusic`
+--
+ALTER TABLE `usersmusic`
+  ADD PRIMARY KEY (`idmusic`,`idusers`),
+  ADD KEY `idusers` (`idusers`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `music`
+--
+ALTER TABLE `music`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `playlist`
+--
+ALTER TABLE `playlist`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Limitadores para a tabela `music`
+--
+ALTER TABLE `music`
+  ADD CONSTRAINT `music_ibfk_1` FOREIGN KEY (`owner`) REFERENCES `users` (`id`);
+
+--
+-- Limitadores para a tabela `musicplaylist`
+--
+ALTER TABLE `musicplaylist`
+  ADD CONSTRAINT `musicplaylist_ibfk_1` FOREIGN KEY (`idmusic`) REFERENCES `music` (`id`),
+  ADD CONSTRAINT `musicplaylist_ibfk_2` FOREIGN KEY (`idplaylist`) REFERENCES `playlist` (`id`);
+
+--
+-- Limitadores para a tabela `playlist`
+--
+ALTER TABLE `playlist`
+  ADD CONSTRAINT `playlist_ibfk_1` FOREIGN KEY (`owner`) REFERENCES `users` (`id`);
+
+--
+-- Limitadores para a tabela `playlistusers`
+--
+ALTER TABLE `playlistusers`
+  ADD CONSTRAINT `playlistusers_ibfk_1` FOREIGN KEY (`idplaylist`) REFERENCES `playlist` (`id`),
+  ADD CONSTRAINT `playlistusers_ibfk_2` FOREIGN KEY (`iduser`) REFERENCES `users` (`id`);
+
+--
+-- Limitadores para a tabela `usersmusic`
+--
+ALTER TABLE `usersmusic`
+  ADD CONSTRAINT `usersmusic_ibfk_1` FOREIGN KEY (`idmusic`) REFERENCES `music` (`id`),
+  ADD CONSTRAINT `usersmusic_ibfk_2` FOREIGN KEY (`idusers`) REFERENCES `users` (`id`);
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
