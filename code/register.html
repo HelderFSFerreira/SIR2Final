@@ -146,11 +146,32 @@
         }
     });
 
-    $( "#btnSubmit" ).click(function() {
+    $("#btnSubmit").click(function() {
         if ($('#form1').valid()) {
-            console.log("Entrei");
-        } else {
-            console.log("Entrei2");
+            $.ajax({
+                type: 'POST',
+                url: 'http://localhost/ISFinal/ws/newuser.php',
+                dataType: 'json',
+                data: {
+                    user: $('#username').val(),
+                    pass: $('#password').val(),
+                    name: $('#name').val(),
+                    email: $('#email').val()
+                },
+                success: function (response) {
+                    console.log(response);
+                    if (response.status==1) {
+                        console.log("Registou");
+                    } else {
+                        console.log("NãoRegistou");
+                    }
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    console.log(xhr);
+                    console.log(ajaxOptions);
+                    console.log(thrownError);
+                }
+            });
         }
     });
 </script>

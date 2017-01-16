@@ -8,7 +8,7 @@ if (isset($_POST['user']) && $_POST['pass'] && $_POST['name'] && $_POST['email']
 
     include_once 'connection.php';
 
-    $query = "INSERT INTO users1 (username,password,name,email)VALUES ('$user','$pass','$name','$maill')";
+    $query = "INSERT INTO users (username,password,name,email)VALUES ('$user','$pass','$name','$email')";
     $res = $conn->query($query);
 
     if($res) {
@@ -18,5 +18,5 @@ if (isset($_POST['user']) && $_POST['pass'] && $_POST['name'] && $_POST['email']
     }
 
     header('Content-type: application/json');
-    var_dump($rows);
+    echo json_encode($rows);
 }
