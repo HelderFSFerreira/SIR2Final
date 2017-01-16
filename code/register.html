@@ -9,6 +9,7 @@
     <link href="css/register.css" rel="stylesheet">
     <script src="//code.jquery.com/jquery-3.1.1.min.js"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="http://cdn.jsdelivr.net/jquery.validation/1.15.0/jquery.validate.min.js"></script>
 </head>
 <body>
 <!DOCTYPE html>
@@ -35,14 +36,14 @@
             </div>
         </div>
         <div class="main-login main-center">
-            <form class="form-horizontal" method="post" action="#">
+            <form class="form-horizontal" id="form1">
 
                 <div class="form-group">
                     <label for="name" class="cols-sm-2 control-label">Your Name</label>
                     <div class="cols-sm-10">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-                            <input type="text" class="form-control" name="name" id="name"  placeholder="Enter your Name"/>
+                            <input type="text" class="form-control" name="name" id="name"  placeholder="Enter your Name" required="true"/>
                         </div>
                     </div>
                 </div>
@@ -52,7 +53,7 @@
                     <div class="cols-sm-10">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
-                            <input type="text" class="form-control" name="email" id="email"  placeholder="Enter your Email"/>
+                            <input type="email" class="form-control" name="email" id="email"  placeholder="Enter your Email" required="true"/>
                         </div>
                     </div>
                 </div>
@@ -62,7 +63,7 @@
                     <div class="cols-sm-10">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
-                            <input type="text" class="form-control" name="username" id="username"  placeholder="Enter your Username"/>
+                            <input type="text" class="form-control" name="username" id="username"  placeholder="Enter your Username"  required="true"/>
                         </div>
                     </div>
                 </div>
@@ -72,7 +73,7 @@
                     <div class="cols-sm-10">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-                            <input type="password" class="form-control" name="password" id="password"  placeholder="Enter your Password"/>
+                            <input type="password" class="form-control" name="password" id="password"  placeholder="Enter your Password" required="true" min="5"/>
                         </div>
                     </div>
                 </div>
@@ -82,13 +83,13 @@
                     <div class="cols-sm-10">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-                            <input type="password" class="form-control" name="confirm" id="confirm"  placeholder="Confirm your Password"/>
+                            <input type="password" class="form-control" name="confirm" id="confirm"  placeholder="Confirm your Password"  required="true" min="5"/>
                         </div>
                     </div>
                 </div>
 
                 <div class="form-group ">
-                    <input type="submit" class="btn btn-primary btn-lg btn-block login-button"/>
+                    <input type="submit" class="btn btn-primary btn-lg btn-block login-button" id="btnSubmit"/>
                 </div>
                 <div class="login-register">
                     <a href="index.php">Login</a>
@@ -98,10 +99,84 @@
     </div>
 </div>
 
+<script>
+    var msg=false;
+    $.validator.addMethod (
+        "uniqueUserName",
+        function (value, element) {
+            $.ajax({
+                type: 'POST',
+                url: 'http://localhost/ISFinal/ws/checkUserRegistered.php',
+                dataType: 'json',
+                data: {
+                    user: value
+                },
+                success: function (response) {
+                    if (response.status==1) {
+                        msg=true;
+                    } else {
+                        msg=false;
+                    }
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    console.log(xhr);
+                }
+            });
+            return msg;
+        }
+    )
+
+    $('#form1').validate({
+        rules: {
+            password: {
+                required: true,
+                minlength: 3
+            },
+            username: {
+                uniqueUserName: true,
+            },
+            confirm: {
+                equalTo: "#password"
+            }
+        },
+        messages: {
+            username: {
+                uniqueUserName: "Username already taken",
+            }
+        }
+    });
+
+    $("#btnSubmit").click(function() {
+        if ($('#form1').valid()) {
+            $.ajax({
+                type: 'POST',
+                url: 'http://localhost/ISFinal/ws/newuser.php',
+                dataType: 'json',
+                data: {
+                    user: $('#username').val(),
+                    pass: $('#password').val(),
+                    name: $('#name').val(),
+                    email: $('#email').val()
+                },
+                success: function (response) {
+                    console.log(response);
+                    if (response.status==1) {
+                        console.log("Registou");
+                    } else {
+                        console.log("NãoRegistou");
+                    }
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    console.log(xhr);
+                    console.log(ajaxOptions);
+                    console.log(thrownError);
+                }
+            });
+        }
+    });
+</script>
+
 </body>
 </html>
-<script type="text/javascript">
-
-</script>
 </body>
 </html>

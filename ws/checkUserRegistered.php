@@ -16,7 +16,12 @@ if(isset($_POST['user'])) {
         $rows = array('status'=>'-1');
     }
     header('Content-type: application/json');
+<<<<<<< HEAD
     var_dump($rows);
 }
 
 ?>
+=======
+    echo json_encode($rows);
+}
+>>>>>>> 4b1155b23438624c0d59eacf169bbb2bfc62639b
