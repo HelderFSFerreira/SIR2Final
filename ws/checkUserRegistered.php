@@ -18,3 +18,5 @@ if(isset($_POST['user'])) {
     header('Content-type: application/json');
     var_dump($rows);
 }
+
+?>
