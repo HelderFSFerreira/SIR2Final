@@ -8,7 +8,7 @@ $(document).ready(function() {
         function (value, element) {
             $.ajax({
                 type: 'POST',
-                url: 'http://localhost/ISFinal/ws/checkUserRegistered.php',
+                url: 'http://localhost/SIRFinal/ws/checkUserRegistered.php',
                 dataType: 'json',
                 data: {
                     user: value
@@ -52,7 +52,7 @@ $(document).ready(function() {
         if ($('#form1').valid()) {
             $.ajax({
                 type: 'POST',
-                url: 'http://localhost/ISFinal/ws/newuser.php',
+                url: 'http://localhost/SIRFinal/ws/newuser.php',
                 dataType: 'json',
                 data: {
                     user: $('#username').val(),
@@ -64,7 +64,7 @@ $(document).ready(function() {
                     console.log(response);
                     if (response.status == 1) {
                         console.log("Registou");
-                        document.location.href = "http://localhost/ISFinal/code/index.html";
+                        document.location.href = "http://localhost/SIRFinal/code/index.html";
                     } else {
                         console.log("NãoRegistou");
                     }

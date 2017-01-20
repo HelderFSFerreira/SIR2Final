@@ -3,7 +3,7 @@ $(document).ready(function(){
         console.log("Entrei");
         $.ajax({
             type: 'POST',
-            url: 'http://localhost/ISFinal/ws/loginws.php',
+            url: 'http://localhost/SIRFinal/ws/loginws.php',
             dataType: 'json',
             data: {
                 user: $('#inputUsername').val(),
