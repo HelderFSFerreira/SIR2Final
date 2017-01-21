@@ -12,9 +12,8 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css">
     <script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
-
-    </script>
     <script src="js/tableUsers.js"></script>
+    <script src="js/tablePlaylists.js"></script>
 </head>
 <body>
 
@@ -39,14 +38,28 @@
             <th>Name</th>
             <th>Name on Disk</th>
             <th>Owner</th>
+            <th>Date of Creation</th>
         </tr>
         </thead>
-        <script type="text/javascript">
-          var userIdphp =  <?php echo($userId); ?>;
-        </script>
+    </table>
+    <br><br>
+
+    <table class="table table-hover table-striped" id="tablePlaylistsHome">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Owner</th>
+            <th>Date of Creation</th>
+        </tr>
+        </thead>
     </table>
 
 
 </body>
+
+<script type="text/javascript">
+    var userIdphp =  <?php echo($userId); ?>;
+</script>
 
 </html>

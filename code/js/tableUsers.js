@@ -26,8 +26,9 @@ $(document).ready(function(){
         name = musics[i].name;
         namedisk = musics[i].namedisc;
         username = musics[i].username;
+        dateupload = musics[i].dateupload;
 
-        toHtml += "<tr><td>"+id+"</td><td>"+name+"</td><td>"+namedisk+"</td><td>"+username+"</td></tr>";
+        toHtml += "<tr><td>"+id+"</td><td>"+name+"</td><td>"+namedisk+"</td><td>"+username+"</td><td>"+dateupload+"</td></tr>";
 
       }
       toHtml+="</tbody>";

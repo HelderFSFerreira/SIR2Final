@@ -10,7 +10,7 @@
 
         include_once 'connection.php';
 
-        $query = "SELECT music.id,music.name,music.namedisc,users.username,music.dateupload FROM music,users WHERE users.id=music.owner AND music.owner='$userId'";
+        $query = "SELECT playlist.id,playlist.name,users.username,playlist.datecreation FROM playlist,users WHERE users.id=playlist.owner AND playlist.owner='$userId'";
         $res = $conn->query($query);
 
         $rowNumber = mysqli_num_rows($res);
@@ -20,7 +20,7 @@
             while ($r = mysqli_fetch_assoc($res)) {
                 $rows[] = $r;
             }
-            $arrayFinal = array($status,'musics'=>$rows);
+            $arrayFinal = array($status,'playlists'=>$rows);
         } /*else {
             $status = array('status'=>'-1');
             $arrayFinal = $status;
