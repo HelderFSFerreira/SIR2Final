@@ -5,8 +5,8 @@
  * Date: 21/01/2017
  * Time: 15:30
  */
-    if (isset($_GET['userId'])) {
-        $userId = $_GET['userId'];
+    if (isset($_POST['userId'])) {
+        $userId = $_POST['userId'];
 
         include_once 'connection.php';
 
@@ -21,10 +21,10 @@
                 $rows[] = $r;
             }
             $arrayFinal = array($status,'musics'=>$rows);
-        } else {
+        } /*else {
             $status = array('status'=>'-1');
             $arrayFinal = $status;
-        }
+        }*/
 
         echo json_encode($arrayFinal);
         header('Content-type: application/json');
