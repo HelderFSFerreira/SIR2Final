@@ -16,7 +16,6 @@
         $rowNumber = mysqli_num_rows($res);
 
         if ($rowNumber>0) {
-            $status = array('status'=>'1');
             while ($r = mysqli_fetch_assoc($res)) {
                 $rows[] = $r;
             }
