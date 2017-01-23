@@ -20,11 +20,11 @@
             while ($r = mysqli_fetch_assoc($res)) {
                 $rows[] = $r;
             }
-            $arrayFinal = array($status,'playlists'=>$rows);
-        } /*else {
+            $arrayFinal = array('status'=>'1','playlists'=>$rows);
+        } else {
             $status = array('status'=>'-1');
             $arrayFinal = $status;
-        }*/
+        }
 
         echo json_encode($arrayFinal);
         header('Content-type: application/json');
