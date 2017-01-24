@@ -4,7 +4,7 @@
 $(document).ready(function(){
     $.ajax({
         type: 'POST',
-        url: 'http://localhost/SIRFinal/ws/getUserPlaylists.php',
+        url: 'http://localhost/SIR2Final/ws/getUserPlaylists.php',
         dataType: 'json',
         data: {
             userId: userIdphp
@@ -20,8 +20,7 @@ $(document).ready(function(){
 
     function populateTable (playlists) {
         console.log(playlists);
-        toHtml = "<tbody>";
-
+        /*toHtml = "<tbody>";
         for (i=0;i<playlists.length;i++) {
             id = playlists[i].id;
             name = playlists[i].name;
@@ -33,7 +32,16 @@ $(document).ready(function(){
         }
         toHtml+="</tbody>";
         $("#tablePlaylistsHome").append(toHtml);
-        $("#tablePlaylistsHome").DataTable();
+        $("#tablePlaylistsHome").DataTable();*/
+       toHtml = '<p>';
+        for(i = 0; i < playlists.length; i++){
+            name = playlists[i].name;
+            toHtml += '<a href="">' +'<h5>'+name+' <span class="glyphicon glyphicon-play-circle"></span><h5>'+'</a>';
+            console.log("Ola");
+        }
+        $("#tablePlaylistsHome").append(toHtml);
+        
+        
     }
 
 
