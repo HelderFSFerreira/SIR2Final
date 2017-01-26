@@ -1,16 +1,14 @@
 $(document).ready(function(){
     function btnSend() {
-        console.log("Entrei");
         $.ajax({
             type: 'POST',
-            url: 'http://localhost/SIR2Final/ws/loginws.php',
+            url: '../ws/loginws.php',
             dataType: 'json',
             data: {
                 user: $('#inputUsername').val(),
                 pass: $('#inputPassword').val()
             },
             success: function (response) {
-                console.log(response[0].id);
                 if(response[0].id==1){
                     window.location.replace("home.php");
                 }else{
@@ -24,7 +22,6 @@ $(document).ready(function(){
     }
 
     $('#loginBTN').click(function () {
-        console.log("Entrei2");
         btnSend();
     })
     

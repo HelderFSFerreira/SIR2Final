@@ -1,3 +1,12 @@
+<?php
+session_start();
+if (isset($_SESSION['userID'])) {
+    header("location:home.php");
+}
+session_write_close();
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
