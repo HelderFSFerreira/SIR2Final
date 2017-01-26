@@ -32,16 +32,6 @@ session_write_close();
                 $('audio,video').mediaelementplayer();
             });
         </script>
-        
-        <style>
-            body{
-                background-image: url('images/background.jpg');
-                background-color: black;
-                background-repeat: no-repeat;
-                background-position: center;
-                font-family: arial, sans-serif;
-            }
-        </style>
     </head>
     <body>
         
