@@ -33,16 +33,19 @@ $(document).ready(function(){
         toHtml+="</tbody>";
         $("#tablePlaylistsHome").append(toHtml);
         $("#tablePlaylistsHome").DataTable();*/
-       toHtml = '<p>';
+        
+        picon = $("<p/>").append($("<img/>").attr("src",icon));
+        
         for(i = 0; i < playlists.length; i++){
-            name = playlists[i].name;
-            toHtml += '<a href="">' +'<h5>'+name+' <span class="glyphicon glyphicon-play-circle"></span><h5>'+'</a>';
+            name = $("<p/>").append(playlists[i].name);
+            link = $("</a>").attr("href","");
+            
+            
+            toHtml += '<a href="">' +'<h5 id="'+i+'">'+name+' <span class="glyphicon glyphicon-play-circle"></span></h5>'+'</a>';
             console.log("Ola");
         }
-        $("#tablePlaylistsHome").append(toHtml);
-        
-        
+        toHtml += '</p>';
+        $("#tablePlaylistsHome").append(toHtml);   
     }
-
-
+    
 });

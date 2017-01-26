@@ -1,5 +1,10 @@
 <?php
- $userId = $_GET['userId'];
+session_start();
+
+if(!isset($_SESSION['user'])){
+    //header("location:index.html");
+}
+session_write_close();
 ?>
 
 <!DOCTYPE html>
@@ -13,6 +18,7 @@
         <link rel="stylesheet" href="https://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css">
         <script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
         <script src="js/tableUsers.js"></script>
+        <script src="js/login.js"></script>
         <script src="js/tablePlaylists.js"></script>
         
         <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.1.1.min.js"></script>
@@ -105,26 +111,10 @@
                     <div class="col-md-8">
                         <div class="panel panel-default">
                             <div class="panel-body">
-                                <div class="media">
-                                  <div class="media-left">
-                                    <a href="#">
-                                      <img class="media-object" src="images/background.jpg" style="width:64px;height:64px;" alt="...">
-                                    </a>
-                                  </div>
+                                <div class="media"></div>
                                   <div class="media-body">
-                                    <h4 class="media-heading">Media heading</h4>
-                                    ...
-                                  </div>
-                                </div>
-                                <div class="media">
-                                  <div class="media-left">
-                                    <a href="#">
-                                      <img class="media-object" src="images/background.jpg" style="width:64px;height:64px;" alt="...">
-                                    </a>
-                                  </div>
-                                  <div class="media-body">
-                                    <h4 class="media-heading">Media heading</h4>
-                                    ...
+                                    <h4 id="musicplaylistname" class="media-heading">Music playlist name</h4>
+                                    <p id="musicname">Music name</p>
                                   </div>
                                 </div>
                             </div>
@@ -134,12 +124,19 @@
             </div>
             
             <div class="panel panel-default">
-              <div class="panel-body">A Basic Panel<br><br><br><br><br></div>
+              <div class="panel-body">
+                <div id="name"></div>
+            <div id="last_name"></div>
+            <div id="pic"></div>
+            <div id="email"></div>
+            <div id="status"></div>
+                
+                </div>
             </div>
         </div>
         
 <script type="text/javascript">
-    var userIdphp =  <?php echo($userId); ?>;
+    var userIdphp =  <?php echo($_GET['userId']); ?>;
 </script>
 
     </body>
