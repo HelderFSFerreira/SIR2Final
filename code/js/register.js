@@ -64,7 +64,7 @@ $(document).ready(function() {
                     console.log(response);
                     if (response.status == 1) {
                         console.log("Registou");
-                        document.location.href = "http://localhost/SIRFinal/code/index.html";
+                        document.location.href = "../index.php";
                     } else {
                         console.log("NãoRegistou");
                     }

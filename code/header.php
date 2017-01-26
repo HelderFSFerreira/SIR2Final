@@ -1,8 +1,10 @@
 <?php
 session_start();
 
-if(!isset($_SESSION['user'])){
-    //header("location:index.html");
+if(isset($_SESSION['userID'])){
+    $userID = $_SESSION['userID'];
+} else {
+    header("location:index.php");
 }
 
 session_write_close();
