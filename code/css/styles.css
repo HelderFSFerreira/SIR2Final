@@ -1,0 +1,37 @@
+body{
+    background-image: url('images/background.jpg');
+    background-color: black;
+    background-repeat: no-repeat;
+    background-position: center;
+    font-family: arial, sans-serif;
+}
+.navbarcolor{
+    background-color: darkslategrey;
+}
+.navbarbrand{
+    color:white;
+}
+.navbarbrand:hover{
+    color:lightgrey;
+}
+
+.playlistcontent{
+    background-color: darkslategrey;
+}
+
+.playlistcontent h5{
+    border-bottom: 2px solid darkgrey;
+    padding-bottom: 5px;
+}
+.playlistcontent a{
+    text-decoration: none;
+    color:whitesmoke;
+}
+.playlistcontent a:hover{
+    color:black;
+}            
+.playlistheader{
+    background-color: grey;
+    padding: 2px;
+    padding-left: 15px;
+}
