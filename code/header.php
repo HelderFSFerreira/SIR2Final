@@ -37,15 +37,13 @@ session_write_close();
     <body>
         
         <div class="container">
-            <nav class="navbar navbar-light navbarcolor">
+            <nav class="navbar navbar-default">
                 <div class="container-fuild">
-                    <a class="navbar-brand navbarbrand" href="#">Navbar</a>      
+                    <a href="home.php" class="navbar-left"><img src="images/icon.png" style="width:50px; height:50px;"></a><a class="navbar-brand" href="home.php"> NHIT MUSIC </a>
                 </div>
                 <div class="nav navbar-nav">
-                    <li class="active"><a class="navbarbrand" href="#">Home</a></li>
-                    <li><a class="navbarbrand" href="#">Page 1</a></li>
-                    <li><a class="navbarbrand" href="#">Page 2</a></li>
-                    <li><a class="navbarbrand" href="#">Page 3</a></li>   
+                    <li class="active"><a class="navbarbrand" href="home.php">Feed</a></li>
+                    <li><a class="navbarbrand" href="home.php">Profile</a></li> 
                 </div>
             </nav>
         </div>

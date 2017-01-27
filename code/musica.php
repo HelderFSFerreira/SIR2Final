@@ -1,6 +1,5 @@
 <?php
     include('header.php');
-    var_dump($_GET['idplaylist']);
 ?> 
 <script type="text/javascript">
         var playlistId = <? echo $_GET['idplaylist']; ?>;
