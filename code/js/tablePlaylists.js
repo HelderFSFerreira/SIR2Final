@@ -27,7 +27,8 @@ $(document).ready(function(){
             //3
             image = $("<img/>").attr("src","images/album1.jpg").css({"width":"171","height":"180"});
             //4
-            direction = $("<a/>").attr('href','www.google.com').addClass("thumbnail");
+            dirname = "musica.php?idplaylist="+playlists[i].id;
+            direction = $("<a/>").attr('href', dirname).addClass("thumbnail");
             //5
             content = $("<div/>").addClass("col-md-3").addClass("col-xs-6");
             

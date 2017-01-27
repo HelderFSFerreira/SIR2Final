@@ -1,7 +1,10 @@
 <?php
     include('header.php');
 ?> 
-
+<script type="text/javascript">
+        var playlistId = <? echo $_GET['idplaylist']; ?>;
+        console.log("entrei");
+</script>
 
 <div class="container">
 
@@ -26,7 +29,8 @@
 </div>
 
 <script type="text/javascript">
-            var playlistId = 1;
+        var playlistId = <? echo $_GET['idplaylist']; ?>;
+        console.log("entrei");
 </script>
 
 
