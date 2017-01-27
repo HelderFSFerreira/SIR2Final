@@ -23,17 +23,18 @@ session_write_close();
         <script src="js/tableUsers.js"></script>
         <script src="js/login.js"></script>
         <script src="js/tablePlaylists.js"></script>
+        <script src="js/tablemusicbyplaylist.js"></script>
         
         <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.1.1.min.js"></script>
         <script src="mediaelement-master/src/js/player.js"></script>
         <link rel="stylesheet" href="mediaelement-master/src/css/mediaelementplayer.css" />
         <link rel="stylesheet" href="css/styles.css" />
         
-        <script>
+        <!--<script>
             $(document).ready(function(){
                 $('audio,video').mediaelementplayer();
             });
-        </script>
+        </script>-->
     </head>
     <body>
         

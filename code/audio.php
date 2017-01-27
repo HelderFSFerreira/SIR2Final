@@ -1,0 +1,1 @@
+<center><audio id="player" src="http://localhost/sirtestes/musicreader.php?music=musica" type="audio/mp3" controls="controls"></audio></center>

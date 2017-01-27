@@ -1,11 +1,12 @@
 <?php
 
-    if (isset($_POST['userId'])) {
-        $userId = $_POST['userId'];
+    if (isset($_POST['playlistID'])) {
+        $playlistId = $_POST['playlistID'];
+        //$playlistId = 1;
 
         include_once 'connection.php';
 
-        $query = "SELECT music.id,music.name,music.namedisc,users.username,music.dateupload FROM music,users WHERE users.id=music.owner AND music.owner='$userId'";
+        $query = "Select music.name, music.namedisc, playlist.name as playlistname, users.name as dono, music.owner, music.id from users, usersmusic, music, musicplaylist, playlist where music.id = musicplaylist.idmusic and playlist.id = musicplaylist.idplaylist and users.id = usersmusic.idusers and music.id = usersmusic.idmusic and playlist.id = '$playlistId'";
         $res = $conn->query($query);
 
         $rowNumber = mysqli_num_rows($res);
