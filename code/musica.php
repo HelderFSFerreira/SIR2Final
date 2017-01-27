@@ -6,6 +6,7 @@
         var playlistId = <? echo $_GET['idplaylist']; ?>;
         console.log("entrei");
 </script>
+<script src="js/tablemusicbyplaylist.js"></script>
 
 <div class="container">
 

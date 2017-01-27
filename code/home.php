@@ -1,6 +1,9 @@
 <?php
     include('header.php');
 ?>  
+<script src="js/tablePlaylists.js"></script>
+<script src="js/tableUsers.js"></script>
+
 <div class="container">
     <br><br>
     <center><audio id="player" src="http://localhost/sirtestes/musicreader.php?music=musica" type="audio/mp3" controls="controls"></audio></center>
