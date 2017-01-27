@@ -1,7 +1,6 @@
-<script type="text/javascript">
-    var userIdphp =  <?php echo($_GET['userId']); ?>;
-</script>
-<p>ola!</p>
+<div class="container">
+    <center><p style="color:white;">Helder Ferreira & Nelson Rodrigues</p></center>
+</div>
     </body>
     
 </html>

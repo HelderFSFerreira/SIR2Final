@@ -7,7 +7,7 @@ $(document).ready(function(){
         url: 'http://localhost/SIRFinal/ws/getUserMusic.php',
         dataType: 'json',
         data: {
-            userId: userIdphp
+            userId: useridphp
         },
         success: function (response) {
           populateTable(response.musics);
