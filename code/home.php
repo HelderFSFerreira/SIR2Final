@@ -5,9 +5,6 @@
 <script src="js/tableUsers.js"></script>
 
 <div class="container">
-    <br><br>
-    <center><audio id="player" src="http://localhost/sirtestes/musicreader.php?music=musica" type="audio/mp3" controls="controls"></audio></center>
-    <br><br>
     <input type="search" class="form-control" id="searchbox" onsearch="myFunction()" placeholder="Pesquisar...">
     <br>
     <div class="panel panel-default">
@@ -28,7 +25,7 @@
           <div class="panel panel-default">
               <div class="panel-body">
                   <div class="page-header">
-                      <h1>Músicas - <small id="playlistname"></small></h1>
+                      <h1>As minhas músicas<small id="playlistname"></small></h1>
                     </div> 
                   <div class="panel panel-default">
                     <table class="table" id="thumbnailPlaylistsHome3">
