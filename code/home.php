@@ -24,10 +24,25 @@
           <div class="tablePlaylistsHome">
             
           </div>
+          <br>
+          <div class="panel panel-default">
+              <div class="panel-body">
+                  <div class="page-header">
+                      <h1>Músicas - <small id="playlistname"></small></h1>
+                    </div> 
+                  <div class="panel panel-default">
+                    <table class="table" id="thumbnailPlaylistsHome3">
+                    </table>
+                </div>
+                  <div id="infostatics"></div>
+                </div>
+            </div>
+          
           <script type="text/javascript">
             var useridphp = <?php echo json_encode($userID);?>;
           </script>
           
+          <?php include('audio.php') ?>
           
         </div>
       </div>

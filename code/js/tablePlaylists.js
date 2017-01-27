@@ -7,7 +7,7 @@ $(document).ready(function(){
             userId: useridphp
         },
         success: function (response) {
-            populateTable(response.playlists);
+            populateTableplaylists(response.playlists);
         },
         error: function (xhr, ajaxOptions, thrownError) {
             console.log("entrei aqui2");
@@ -15,7 +15,7 @@ $(document).ready(function(){
         }
     });
 
-    function populateTable (playlists) {
+    function populateTableplaylists (playlists) {
         for(i = 0; i < playlists.length; i++){
             name = playlists[i].name;
             //1 

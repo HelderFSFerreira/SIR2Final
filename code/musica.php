@@ -23,11 +23,9 @@
         </div>
     </div>
     
-    <nav class="navbar navbar-default navbar-fixed-bottom">
-      <div class="container">
-          <?php include('audio.php') ?>
-      </div>
-    </nav>
+    
+    <?php include('audio.php') ?>
+      
 </div>
 
 <script type="text/javascript">

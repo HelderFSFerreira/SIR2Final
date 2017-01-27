@@ -1,7 +1,7 @@
 <?php
 
     if (isset($_POST['userId'])) {
-        $userId = $_POST['userId'];
+        $userId = $_POST['userId'];        
 
         include_once 'connection.php';
 

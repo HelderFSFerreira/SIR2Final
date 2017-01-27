@@ -4,7 +4,7 @@
 $(document).ready(function(){
     $.ajax({
         type: 'POST',
-        url: 'http://localhost/SIRFinal/ws/getUserMusic.php',
+        url: 'http://localhost/SIR2Final/ws/getUserMusic.php',
         dataType: 'json',
         data: {
             userId: 1
@@ -14,26 +14,13 @@ $(document).ready(function(){
         },
         error: function (xhr, ajaxOptions, thrownError) {
           console.log("entrei aqui2");
-            console.log(xhr);
+          //console.log(xhr);
         }
     });
 
     function populateTable (musics) {
-      toHtml = "<tbody>";
-
-      for (i=0;i<musics.length;i++) {
-        id = musics[i].id;
-        name = musics[i].name;
-        namedisk = musics[i].namedisc;
-        username = musics[i].username;
-        dateupload = musics[i].dateupload;
-
-        toHtml += "<tr><td>"+id+"</td><td>"+name+"</td><td>"+namedisk+"</td><td>"+username+"</td><td>"+dateupload+"</td></tr>";
-
-      }
-      toHtml+="</tbody>";
-      $("#tableUsersHome").append(toHtml);
-      $("#tableUsersHome" ).DataTable();
+        console.log(musics);
+      
     }
 
 

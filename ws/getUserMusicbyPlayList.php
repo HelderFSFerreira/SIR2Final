@@ -6,7 +6,12 @@
 
         include_once 'connection.php';
 
-        $query = "Select music.name, music.namedisc, playlist.name as playlistname, users.name as dono, music.owner, music.id from users, usersmusic, music, musicplaylist, playlist where music.id = musicplaylist.idmusic and playlist.id = musicplaylist.idplaylist and users.id = usersmusic.idusers and music.id = usersmusic.idmusic and playlist.id = '$playlistId'";
+        $query = "Select music.name, music.namedisc, music.owner, music.id ,playlist.name as playlistname, users.name as dono 
+from music, musicplaylist, playlist, users 
+WHERE music.id = musicplaylist.idmusic 
+AND musicplaylist.idplaylist = playlist.id
+AND music.owner = users.id
+and playlist.id = '$playlistId'";
         $res = $conn->query($query);
 
         $rowNumber = mysqli_num_rows($res);
