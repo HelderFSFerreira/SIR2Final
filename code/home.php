@@ -1,5 +1,6 @@
 <?php
     include('header.php');
+    include ('modal.html');
 ?>  
 <script src="js/tablePlaylists.js"></script>
 <script src="js/tableUsers.js"></script>
@@ -23,18 +24,6 @@
             
           </div>
           <br>
-          <div class="panel panel-default">
-              <div class="panel-body">
-                  <div class="page-header">
-                      <h1>As minhas músicas<small id="playlistname"></small></h1>
-                  </div>
-                  <div class="panel panel-default">
-                      <table class="table" id="thumbnailPlaylistsHome3"></table>
-                  </div>
-                  <div id="infostatics"></div>
-                </div>
-            </div>
-          
           <script>
             var useridphp = <?php echo $userID;?>;
           </script>
@@ -43,6 +32,27 @@
           
         </div>
       </div>
-</div>          
+</div>   
+
+<div class="container">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <div class="page-header">
+                <h1>As minhas musicas</h1>
+            </div>
+            <div class="panel panel-default">
+                <table class="table" id="musicas">
+                </table>
+            </div>            
+            <form action="../ws/uploadMusic.php" method="post" enctype="multipart/form-data">
+                <input type=file multiple name="music[]"/>
+                <input type="hidden" name="user" value="<?php echo $userID; ?>"/>
+                <br>
+                <input type="submit" class="btn btn-warning" value="Submeter"/>
+            </form>
+        </div>
+    </div>
+    <br>
+</div>
                     
 <?php include('footer.php'); ?>
