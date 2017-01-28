@@ -3,6 +3,7 @@
 ?>  
 <script src="js/tablePlaylists.js"></script>
 <script src="js/tableUsers.js"></script>
+<script src="js/addNewPlaylist.js"></script>
 
 <div class="container">
     <input type="search" class="form-control" id="searchbox" onsearch="myFunction()" placeholder="Pesquisar...">
@@ -11,13 +12,13 @@
       <div class="panel-body">
           <div class="page-header">
               <h1>As minhas playlists</h1>
-            </div>         
-          <div class="row" id="thumbnailPlaylistsHome">
-            </div>
-            <button type="button" class="btn btn-warning" aria-label="Right Align">
-              <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Criar nova Playlist 
-            </button>
-          
+          </div>
+          <div class="row" id="thumbnailPlaylistsHome"></div>
+          <input id="nameNewPlaylist" type="text" placeholder="New Playlist Names">
+          <button type="button" class="btn btn-warning" aria-label="Right Align" id="btnAddNewPlaylist">
+            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Criar nova Playlist
+          </button>
+
           <div class="tablePlaylistsHome">
             
           </div>
@@ -26,16 +27,15 @@
               <div class="panel-body">
                   <div class="page-header">
                       <h1>As minhas músicas<small id="playlistname"></small></h1>
-                    </div> 
+                  </div>
                   <div class="panel panel-default">
-                    <table class="table" id="thumbnailPlaylistsHome3">
-                    </table>
-                </div>
+                      <table class="table" id="thumbnailPlaylistsHome3"></table>
+                  </div>
                   <div id="infostatics"></div>
                 </div>
             </div>
           
-          <script type="text/javascript">
+          <script>
             var useridphp = <?php echo json_encode($userID);?>;
           </script>
           

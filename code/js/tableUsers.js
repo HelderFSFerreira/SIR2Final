@@ -4,7 +4,7 @@
 $(document).ready(function(){
     $.ajax({
         type: 'POST',
-        url: 'http://localhost/SIR2Final/ws/getUserMusic.php',
+        url: '../ws/getUserMusic.php',
         dataType: 'json',
         data: {
             userId: 1

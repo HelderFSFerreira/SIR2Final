@@ -1,7 +1,7 @@
 $(document).ready(function(){
     $.ajax({
         type: 'POST',
-        url: 'http://localhost/SIR2FINAL/ws/getUserMusicbyPlayList.php',
+        url: '../ws/getUserMusicbyPlayList.php',
         dataType: 'json',
         data: {
             playlistID: playlistId
@@ -70,7 +70,7 @@ $(document).ready(function(){
 
 function ola(musica){
     //aqui vou buscar as musicas pelo id
-    source = "http://localhost/SIR2FINAL/ws/musicreader.php?musicID="+musica;
+    source = "../ws/musicreader.php?musicID="+musica;
     $("#player").attr("src",source);
     console.log(musica);
     

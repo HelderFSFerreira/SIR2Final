@@ -33,3 +33,7 @@ body{
     padding: 2px;
     padding-left: 15px;
 }
+
+input{
+    border-radius: 7px;
+}
