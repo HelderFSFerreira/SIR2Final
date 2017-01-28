@@ -5,7 +5,7 @@ if(!empty($_FILES)){
     include_once 'connection.php';
     $user = $_POST['user'];
     foreach ($_FILES["music"]["error"] as $key => $error) {
-        $namemusic = $_FILES['music']['name'][$i];
+        $namemusic = pathinfo($_FILES['music']['name'][$i], PATHINFO_FILENAME);
         //guardar a musica na base de dados
         
         $destino = "../music/" . $_FILES["music"]["name"][$i];
@@ -17,6 +17,6 @@ if(!empty($_FILES)){
     }
         header('Location: ../code/home.php');
     }else{
-        header('Location: ../code/home.php');
+       header('Location: ../code/home.php');
     }
 ?>

@@ -21,6 +21,7 @@ session_write_close();
         <link rel="stylesheet" href="https://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css">
         <script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>        
         <script src="js/login.js"></script>
+        <script src="js/bootstrap-confirmation.min.js"></script>
         
         
         <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.1.1.min.js"></script>

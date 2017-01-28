@@ -41,12 +41,13 @@ $(document).ready(function(){
             //create span add
             plist = "setvalues("+musics[i].id+")";
             idmusicplaylist = "idmusica" + musics[i].id;
-            span = $("<span/>").addClass("glyphicon glyphicon-plus-sign").attr('id', idmusicplaylist);;
-            tableadd = $("<button/>").attr("type","button").addClass("btn btn-danger").attr("onclick",plist).append(span).attr("data-toggle","modal").attr("data-target","#myModal");
+            span = $("<span/>").addClass("glyphicon glyphicon-plus-sign").attr('id', idmusicplaylist);
+            buttonadd = $("<button/>").attr("type","button").addClass("btn btn-danger btn-xs").attr("onclick",plist).append(span).attr("data-toggle","modal").attr("data-target","#myModal");
+            tableadd = $("<td/>").append(buttonadd);
             //create play
             mus = "play("+musics[i].id+")";
             span2 = $("<span/>").addClass("glyphicon glyphicon-play-circle").attr('id', idmusicplaylist);
-            buttonplay = $("<button/>").attr("type","button").addClass("btn btn-danger").attr("onclick",mus);
+            buttonplay = $("<button/>").attr("type","button").addClass("btn btn-danger btn-xs").attr("onclick",mus).append(span2);
             tableplay = $("<td/>").append(buttonplay);
             //nomemusica
             musica = musics[i].name;
@@ -83,4 +84,27 @@ function play(musica){
 
 function setvalues(idmusica){
     $('#texto').html(idmusica);
+    add = "adiciona("+idmusica+")";
+    $('#buttaoadiciona').attr("onclick",add);
+    
 }
+
+function adiciona(num){
+    $.ajax({
+        type: 'POST',
+        url: '../ws/removeFromPlaylist.php',
+        dataType: 'json',
+        data: {
+            playlistID: playlistId,
+            musicaID : idmusica
+        },
+        success: function (response) {
+            console.log(response);
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+            console.log("entrei aqui2");
+            //console.log(xhr);
+        }
+    });
+}
+

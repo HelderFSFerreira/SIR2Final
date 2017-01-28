@@ -7,7 +7,11 @@ $(document).ready(function(){
             playlistID: playlistId
         },
         success: function (response) {
-            populateTable(response.playlists);
+            if(response.status != "-1"){
+                populateTable(response.playlists);
+            }else{
+                $("#thumbnailPlaylistsHome2").append($("<tbody/>").append($("<tr/>").append("Playlist vazia..")));
+            }
         },
         error: function (xhr, ajaxOptions, thrownError) {
             console.log("entrei aqui2");
@@ -20,7 +24,7 @@ $(document).ready(function(){
         var count = 0;
         //make table header
         // 1 - criar table lines
-        tablelinebotao = $("<th/>").append("Add");
+        tablelinebotao = $("<th/>").append("Remove");
         tablelineadiciona = $("<th/>").append("Play");
         tableline1 = $("<th/>").append("Musica");
         tableline3 = $("<th/>").append("Dono");
@@ -35,13 +39,15 @@ $(document).ready(function(){
             //get info
             // 1 - criar table lines
             //create span add
-            span = $("<span/>").addClass("glyphicon glyphicon-plus-sign");
-            tableadd = $("<td/>").append($("<a/>").attr('href','http://www.google.com').append(span));
-            //create play
+            plist = "remove("+musicas[i].id+")";
             idmusicplaylist = "idmusica" + musicas[i].id;
+            span = $("<span/>").addClass("glyphicon glyphicon-remove-circle").attr('id', idmusicplaylist);
+            buttonadd = $("<button/>").attr("type","button").addClass("btn btn-danger btn-xs").attr("onclick",plist).append(span);
+            tableadd = $("<td/>").append(buttonadd);
+            //create play
             span2 = $("<span/>").addClass("glyphicon glyphicon-play-circle").attr('id', idmusicplaylist);
             mus = "ola("+musicas[i].id+")";
-            buttonplay = $("<button/>").attr("type","button").addClass("btn btn-danger").attr("onclick",mus);
+            buttonplay = $("<button/>").attr("type","button").addClass("btn btn-danger btn-xs").attr("onclick",mus).append(span2);
             tableplay = $("<td/>").append(buttonplay);
             //nomemusica
             musica = musicas[i].name;
@@ -74,4 +80,23 @@ function ola(musica){
     $("#player").attr("src",source);
     console.log(musica);
     
+}
+
+function remove(idmusica){
+    $.ajax({
+        type: 'POST',
+        url: '../ws/removeFromPlaylist.php',
+        dataType: 'json',
+        data: {
+            playlistID: playlistId,
+            musicaID : idmusica
+        },
+        success: function (response) {
+            console.log(response);
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+            console.log("entrei aqui2");
+            //console.log(xhr);
+        }
+    });
 }

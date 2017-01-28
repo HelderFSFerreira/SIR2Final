@@ -1,5 +1,6 @@
 <?php
     include('header.php');
+    include ('modal.html');
 ?> 
 <script type="text/javascript">
         var playlistId = <? echo $_GET['idplaylist']; ?>;
