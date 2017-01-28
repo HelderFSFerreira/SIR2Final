@@ -36,7 +36,7 @@
             </div>
           
           <script>
-            var useridphp = <?php echo json_encode($userID);?>;
+            var useridphp = <?php echo $userID;?>;
           </script>
           
           <?php include('audio.php') ?>

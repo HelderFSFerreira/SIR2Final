@@ -9,9 +9,12 @@ $(document).ready(function(){
                 pass: $('#inputPassword').val()
             },
             success: function (response) {
-                if(response[0].id==1){
+                console.log(response);
+                if(response[0].id!=-1){
+                    console.log("entrei aqui1");
                     window.location.replace("home.php");
                 }else{
+                    console.log("entrei aqui2");
                     //nao entrou
                 }
             },

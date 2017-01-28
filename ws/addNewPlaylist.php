@@ -6,9 +6,9 @@
  * Time: 00:22
  */
 
-if (isset($_GET['userId']) AND isset($_GET['namePlaylist'])) {
-    $userId = $_GET['userId'];
-    $playlistName = $_GET['namePlaylist'];
+if (isset($_POST['userId']) AND isset($_POST['namePlaylist'])) {
+    $userId = $_POST['userId'];
+    $playlistName = $_POST['namePlaylist'];
 
     include_once 'connection.php';
 
@@ -21,7 +21,6 @@ if (isset($_GET['userId']) AND isset($_GET['namePlaylist'])) {
         $rows = array('status'=>'1');
     }
 
-    echo json_encode($rows);
     header('Content-type: application/json');
-
+    echo json_encode($rows);
 }

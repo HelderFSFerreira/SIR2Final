@@ -4,22 +4,22 @@
 $(document).ready(function(){
 
     $("#btnAddNewPlaylist").click(function (e) {
+        console.log(useridphp);
+
         $.ajax({
             type: 'POST',
-            url: '../ws/loginws.php',
+            url: '../ws/addNewPlaylist.php',
             dataType: 'json',
             data: {
-                user: $('#inputUsername').val(),
-                pass: $('#inputPassword').val()
+                userId: useridphp,
+                namePlaylist: $('#nameNewPlaylist').val(),
             },
             success: function (response) {
-                if(response[0].id==1){
-                    window.location.replace("home.php");
-                }else{
-                    //nao entrou
-                }
+                console.log("Sucesso");
+                console.log(response);
             },
             error: function (xhr, ajaxOptions, thrownError) {
+                console.log("Erro");
                 console.log(xhr);
             }
         });
