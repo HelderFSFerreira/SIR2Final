@@ -19,7 +19,8 @@ $(document).ready(function(){
 function populateTableplaylists (playlists) {
     for(i = 0; i < playlists.length; i++){
         name = playlists[i].name;
-        n = $("<option>").html(name);
+        idplay = playlists[i].id;
+        n = $("<option>").attr("value",idplay).html(name);
         $('#playlistsmodal').append(n);
         //1
         title = $("<h3/>").append(name);

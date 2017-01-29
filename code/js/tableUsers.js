@@ -89,7 +89,21 @@ function setvalues(idmusica){
 }
 
 function adiciona(num){
-    plista = $("#playlistsmodal>option:selected").text();    
-    
+    plista = $("#playlistsmodal>option:selected").val();
+    $.ajax({
+        type: 'POST',
+        url: '../ws/addToPlaylist.php',
+        dataType: 'json',
+        data: {
+            playlistid : plista,
+            musicid : num
+        },
+        success: function (response) {
+            console.log(response.status);
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+            console.log("aqui");
+        }
+    });
 }
 

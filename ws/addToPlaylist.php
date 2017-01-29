@@ -1,26 +1,22 @@
 <?php
-    if (isset($_POST['playlistid']) && isset($_POST['musicid'])) {
-        $musicid = $_POST['musicid'];
-        $playlistid = $_POST['playlistid'];
-        include_once 'connection.php';
+        
+if (isset($_POST['playlistid']) AND isset($_POST['musicid'])) {
+    $playlistid = $_POST['playlistid'];
+    $musicid = $_POST['musicid'];
 
-        $query = "INSERT INTO musicplaylist ('idmusic', 'idplaylist') VALUES ('$musicid','$playlistid');";
-        $res = $conn->query($query);
+    include_once 'connection.php';
 
-        $rowNumber = mysqli_num_rows($res);
+    $query = "INSERT INTO `musicplaylist`(`idmusic`, `idplaylist`) VALUES ('$musicid','$playlistid')";
+    $res = $conn->query($query);
 
-        if ($rowNumber>0) {
-            while ($r = mysqli_fetch_assoc($res)) {
-                $rows[] = $r;
-            }
-            $arrayFinal = array('status'=>'1','playlists'=>$rows);
-        } else {
-            $status = array('status'=>'-1');
-            $arrayFinal = $status;
-        }
-
-        echo json_encode($arrayFinal);
-        header('Content-type: application/json');
+    if (!$res) {
+        $rows = array('status'=>'-1');
+    } else {
+        $rows = array('status'=>'1');
     }
+
+    header('Content-type: application/json');
+    echo json_encode($rows);
+}
 
 ?>
