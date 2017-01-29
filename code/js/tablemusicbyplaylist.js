@@ -19,18 +19,21 @@ $(document).ready(function(){
         }
     });
 
-    function populateTable (musicas) {
+});
+
+
+function populateTable (musicas) {
         $("#playlistname").append(musicas[0].playlistname);
         var count = 0;
         //make table header
         // 1 - criar table lines
-        tablelinebotao = $("<th/>").append("Remove");
         tablelineadiciona = $("<th/>").append("Play");
         tableline1 = $("<th/>").append("Musica");
-        tableline3 = $("<th/>").append("Dono");
+        tableline2 = $("<th/>").append("Dono");
+        tablelinebotao = $("<th/>").append("Remove");
         tablehead = $("<thead/>");
         tablerow = $("<tr/>");
-        tablerow.append(tablelinebotao).append(tablelineadiciona).append(tableline1).append(tableline3);
+        tablerow.append(tablelineadiciona).append(tableline1).append(tableline2).append(tablelinebotao);
         tablehead.append(tablerow);
         $("#thumbnailPlaylistsHome2").append(tablehead);
         tablebody = $("<tbody/>");
@@ -43,24 +46,24 @@ $(document).ready(function(){
             idmusicplaylist = "idmusica" + musicas[i].id;
             span = $("<span/>").addClass("glyphicon glyphicon-remove-circle").attr('id', idmusicplaylist);
             buttonadd = $("<button/>").attr("type","button").addClass("btn btn-danger btn-xs").attr("onclick",plist).append(span);
-            tableadd = $("<td/>").append(buttonadd);
+            tableremove = $("<td/>").append(buttonadd);
             //create play
             span2 = $("<span/>").addClass("glyphicon glyphicon-play-circle").attr('id', idmusicplaylist);
             mus = "ola("+musicas[i].id+")";
-            buttonplay = $("<button/>").attr("type","button").addClass("btn btn-danger btn-xs").attr("onclick",mus).append(span2);
+            buttonplay = $("<button/>").attr("type","button").addClass("btn btn-default btn-xs").attr("onclick",mus).append(span2);
             tableplay = $("<td/>").append(buttonplay);
             //nomemusica
             musica = musicas[i].name;
             tableline1 = $("<td/>").append(musica);
             //dono
             dono = musicas[i].dono;
-            tableline3 = $("<td/>").append(dono);
+            tableline2 = $("<td/>").append(dono);
 
             // 2 - inserir as rows
 
             console.log(musica);
             tablerow = $("<tr/>");
-            tablerow.append(tableadd).append(tableplay).append(tableline1).append(tableline3);
+            tablerow.append(tableplay).append(tableline1).append(tableline2).append(tableremove);
             tablebody.append(tablerow);
         }
         info = "Total de Musicas: "+ count;
@@ -70,9 +73,6 @@ $(document).ready(function(){
         $("#thumbnailPlaylistsHome2").append(tablebody);
     }
 
-
-
-});
 
 function ola(musica){
     //aqui vou buscar as musicas pelo id
@@ -99,4 +99,5 @@ function remove(idmusica){
             //console.log(xhr);
         }
     });
+    
 }
