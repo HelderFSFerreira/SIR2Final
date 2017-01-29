@@ -28,7 +28,7 @@ $(document).ready(function(){
         tablelineadiciona = $("<th/>").append("Play");
         tableline1 = $("<th/>").append("Musica");
         tableline3 = $("<th/>").append("Dono");
-        tablehead = $("<thead/>"); 
+        tablehead = $("<thead/>");
         tablerow = $("<tr/>");
         tablerow.append(tablelinebotao).append(tablelineadiciona).append(tableline1).append(tableline3);
         tablehead.append(tablerow);
@@ -55,23 +55,23 @@ $(document).ready(function(){
             //dono
             dono = musicas[i].dono;
             tableline3 = $("<td/>").append(dono);
-            
+
             // 2 - inserir as rows
-            
+
             console.log(musica);
             tablerow = $("<tr/>");
             tablerow.append(tableadd).append(tableplay).append(tableline1).append(tableline3);
             tablebody.append(tablerow);
         }
         info = "Total de Musicas: "+ count;
-        
+
         $("#infostatics").append(info);
-        
+
         $("#thumbnailPlaylistsHome2").append(tablebody);
     }
-    
-    
-    
+
+
+
 });
 
 function ola(musica){

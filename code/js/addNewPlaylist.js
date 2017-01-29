@@ -4,25 +4,42 @@
 $(document).ready(function(){
 
     $("#btnAddNewPlaylist").click(function (e) {
-        console.log(useridphp);
-
-        $.ajax({
-            type: 'POST',
-            url: '../ws/addNewPlaylist.php',
-            dataType: 'json',
-            data: {
-                userId: useridphp,
-                namePlaylist: $('#nameNewPlaylist').val(),
-            },
-            success: function (response) {
-                console.log("Sucesso");
-                console.log(response);
-            },
-            error: function (xhr, ajaxOptions, thrownError) {
-                console.log("Erro");
-                console.log(xhr);
-            }
-        });
+        if ($('#nameNewPlaylist').val() != "") {
+            $.ajax({
+                type: 'POST',
+                url: '../ws/addNewPlaylist.php',
+                dataType: 'json',
+                data: {
+                    userId: useridphp,
+                    namePlaylist: $('#nameNewPlaylist').val(),
+                },
+                success: function (response) {
+                    repopulateTablePlaylists();
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    console.log("Erro");
+                    console.log(xhr);
+                }
+            });
+        }
     });
-
 });
+
+function repopulateTablePlaylists() {
+    $.ajax({
+        type: 'POST',
+        url: '../ws/getUserPlaylists.php',
+        dataType: 'json',
+        data: {
+            userId: useridphp
+        },
+        success: function (response) {
+            $("#thumbnailPlaylistsHome").empty();
+            populateTableplaylists(response.playlists);
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+            console.log("entrei aqui2");
+            console.log(xhr);
+        }
+    });
+}
