@@ -13,8 +13,22 @@
     <div class="panel panel-default">
       <div class="panel-body">
           <div class="page-header">
-              <h1>Músicas - <small id="playlistname"></small></h1>
-            </div> 
+              <div class="row">
+                <div class="col-md-1">
+                    <img src="images/album2.jpg" style="width:80px; height:80px"/>
+                </div><div class="col-md-8">
+                    <h1>Playlist: <small id="playlistname"></small></h1>
+                </div><div class="col-md-3">
+                    <button type="button" class="btn btn-success" id="btnSharePlaylist">
+                        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Partilhar
+                    </button>
+                  <button type="button" class="btn btn-danger" id="btnSharePlaylist">
+                        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Remover
+                    </button>
+                </div>
+              </div>      
+            </div>
+          <h3>Musicas</h3>
           <div class="panel panel-default">
             <table class="table" id="thumbnailPlaylistsHome2">
             </table>
