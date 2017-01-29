@@ -1,10 +1,10 @@
 <?php
-    if (isset($_POST['playlistid'])) {
-        $userId = $_POST['userId'];        
-
+    if (isset($_POST['playlistid']) && isset($_POST['musicid'])) {
+        $musicid = $_POST['musicid'];
+        $playlistid = $_POST['playlistid'];
         include_once 'connection.php';
 
-        $query = "SELECT music.id,music.name,music.namedisc,users.username,music.dateupload FROM music,users WHERE users.id=music.owner AND music.owner='$userId'";
+        $query = "INSERT INTO musicplaylist ('idmusic', 'idplaylist') VALUES ('$musicid','$playlistid');";
         $res = $conn->query($query);
 
         $rowNumber = mysqli_num_rows($res);

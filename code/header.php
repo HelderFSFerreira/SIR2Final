@@ -44,11 +44,13 @@ session_write_close();
                 </div>
                 <div class="nav navbar-nav">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a class="navbarbrand" href="home.php">Feed</a></li>
-                        <li><a class="navbarbrand" href="home.php">Profile</a></li> 
+                        <li class="active"><a class="navbarbrand" href="home.php">Home</a></li>
+                        <li><a class="navbarbrand" href="home.php">Musicas</a></li> 
+                        <li><a class="navbarbrand" href="home.php">Playlists</a></li>
+                        <li><a class="navbarbrand" href="">Perfil</a></li> 
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a class="navbarbrand" href="home.php">Logout</a></li>
+                        <li><a class="navbarbrand" href="logout.php">Logout</a></li>
                     </ul>
                 </div>
             </div>

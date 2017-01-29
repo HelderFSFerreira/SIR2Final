@@ -89,21 +89,7 @@ function setvalues(idmusica){
 }
 
 function adiciona(num){
-    $.ajax({
-        type: 'POST',
-        url: '../ws/removeFromPlaylist.php',
-        dataType: 'json',
-        data: {
-            playlistID: playlistId,
-            musicaID : idmusica
-        },
-        success: function (response) {
-            console.log(response);
-        },
-        error: function (xhr, ajaxOptions, thrownError) {
-            console.log("entrei aqui2");
-            //console.log(xhr);
-        }
-    });
+    plista = $("#playlistsmodal>option:selected").text();    
+    
 }
 
