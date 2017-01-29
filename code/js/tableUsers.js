@@ -10,7 +10,10 @@ $(document).ready(function(){
             userId: useridphp
         },
         success: function (response) {
-          populateTable(response.playlists);
+            console.log(response);
+            if (response.status!="-1") {
+                populateTable(response.playlists);
+            }
         },
         error: function (xhr, ajaxOptions, thrownError) {
           console.log("entrei aqui2");
@@ -21,8 +24,6 @@ $(document).ready(function(){
 
 
 function populateTable (musics) {
-
-    console.log(musics[0]);
     var count = 0;
     //make table header
     // 1 - criar table lines

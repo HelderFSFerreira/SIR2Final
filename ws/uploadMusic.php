@@ -10,7 +10,7 @@ if(!empty($_FILES)){
         
         $destino = "../music/" . $_FILES["music"]["name"][$i];
         if( move_uploaded_file( $_FILES["music"]["tmp_name"][$i], $destino )){
-            $q = "INSERT INTO music (owner,name,namedisc)VALUES ('$user','$namemusic','$namemusic')";
+            $q = "INSERT INTO music (owner,name,namedisc,dateUpload)VALUES ('$user','$namemusic','$namemusic',NOW())";
             $conn->query($q);   
         }
         $i++;
