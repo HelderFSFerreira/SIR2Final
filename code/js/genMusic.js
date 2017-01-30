@@ -224,17 +224,20 @@ $('#addUserShare').click(function () {
     if ($('#userToShare').val()!="") {
         $.ajax({
             type: 'POST',
-            url: '../ws/addUserToPlaylist',
+            url: '../ws/addUserToPlaylist.php',
             dataType: 'json',
             data: {
-                playlistID: playlistId,
+                playlistID: playlist,
                 username: $('#userToShare').val(),
             },
             success: function(data) {
+                console.log($('#userToShare').val());
                 console.log(data);
             },
             error: function (xhr, ajaxOptions, thrownError) {
-                console.log(thrownError);
+                console.log($('#userToShare').val());
+                console.log(playlist);
+                console.log(xhr);
             }
         });
     }
