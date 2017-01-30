@@ -138,7 +138,8 @@ function populateTableplaylists (playlists) {
         image = $("<img/>").attr("src","images/album1.jpg").css({"width":"171","height":"180"});
         //4
         dirname = "musica.php?idplaylist="+playlists[i].id;
-        direction = $("<a/>").attr('href', dirname).addClass("thumbnail");
+        callfunctionbyname = "callMusicTemplate("+playlists[i].id+")";
+        direction = $("<a/>").attr('onclick', callfunctionbyname).addClass("thumbnail");
         //5
         content = $("<div/>").addClass("col-md-3").addClass("col-xs-6");
 

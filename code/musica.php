@@ -12,9 +12,11 @@
               <div class="row">
                 <div class="col-md-1">
                     <img src="images/album2.jpg" style="width:80px; height:80px"/>
-                </div><div class="col-md-8">
+                </div>
+                  <div class="col-md-8">
                     <h1>Playlist: <small id="playlistname"></small></h1>
-                </div><div class="col-md-3">
+                </div>
+                  <div class="col-md-3">
                     <button type="button" class="btn btn-success" id="btnSharePlaylist">
                         <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Partilhar
                     </button>
@@ -33,6 +35,8 @@
     
     <?php include('audio.php') ?>
       
+</div>
+    </div>
 </div>
 <script src="js/removePlaylist.js"></script>
 <script src="js/tablemusicbyplaylist.js"></script>

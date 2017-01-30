@@ -1,10 +1,15 @@
-function callAjaxMusic(){
+function callMusicTemplate(id){
+    genTemplateMusic();
+    callAjaxMusic(id);
+}
+
+function callAjaxMusic(playlistid){
     $.ajax({
         type: 'POST',
         url: '../ws/getUserMusicbyPlayList.php',
         dataType: 'json',
         data: {
-            playlistID: playlistId
+            playlistID: playlistid
         },
         success: function (response) {
             if(response.status != "-1"){
@@ -22,7 +27,54 @@ function callAjaxMusic(){
 
 
 function genTemplateMusic(){
-    $(".root").append("ola");
+    $("#root").empty();
+    
+    //container
+    container = $("<div/>").addClass("container");
+    //panel
+    panelm = $("<div/>").addClass("panel panel-default");
+    panelmbody = $("<div/>").addClass("panel-body");
+    panelmheader = $("<div/>").addClass("page-header");
+    //inside panelheader
+    colunas = $("<div/>").addClass("row");
+    //col1
+    col1 = $("<div/>").addClass("col-md-1");
+    imgplay = $("<img/>").attr({src:"images/album2.jpg", style:"width:80px; height:80px"});
+    //col2
+    col2 = $("<div/>").addClass("col-md-8");
+    titleplist = $("<h1/>").html("PlayList:");
+    smalltitle = $("<small/>").attr("id","playlistname");
+    //col3
+    col3 = $("<div/>").addClass("col-md-3");
+    btnpartilha = $("<button/>").attr({type:"button",id:"btnSharePlaylist"}).addClass("btn btn-success");
+    btsharespan = $("<span/>").addClass("glyphicon glyphicon-plus").attr("aria-hidden","true");
+    btsharetext = "Partilhar";
+    btnremover = $("<button/>").attr({type:"button",id:"btnRemovePlaylist"}).addClass("btn btn-danger");
+    btremovespan = $("<span/>").addClass("glyphicon glyphicon-plus").attr("aria-hidden","true");
+    btremovetext = "Remover";
+    //title number two
+    titlemusicas = $("<h3/>").html("Musicas");
+    //div musicas lista
+    panelmmusicas = $("<div/>").addClass("panel panel-default");
+    tablemusicas = $("<table/>").addClass("table").attr("id","thumbnailPlaylistsHome2");
+    
+    
+    col1.append(imgplay);
+    titleplist.append(smalltitle);
+    col2.append(titleplist);
+    btnpartilha.append(btsharespan).append(btsharetext);
+    btnremover.append(btremovespan).append(btremovetext);
+    col3.append(btnpartilha).append(btnremover);
+    colunas.append(col1).append(col2).append(col3);
+    panelmheader.append(colunas);
+    panelmmusicas.append(tablemusicas);
+    
+    panelmbody.append(panelmheader).append(titlemusicas).append(panelmmusicas);
+    panelm.append(panelmbody);
+    
+    container.append(panelm);
+    
+    $("#root").append(container);
 }
 
 
