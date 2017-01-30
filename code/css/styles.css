@@ -36,3 +36,11 @@ body{
 input{
     border-radius: 7px;
 }
+
+.table td:hover {
+        background: #ffa;
+        cursor: pointer;
+    }
+    .table td.current {
+        background: #cddfff;
+    }

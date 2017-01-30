@@ -22,17 +22,18 @@ session_write_close();
         <script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
         <script src="js/login.js"></script>
         <script src="js/bootstrap-confirmation.min.js"></script>
+        <script src="js/mediaplayer.js"></script>
         
 
         <script src="mediaelement-master/src/js/player.js"></script>
-        <link rel="stylesheet" href="mediaelement-master/src/css/mediaelementplayer.css" />
+        <!--<link rel="stylesheet" href="mediaelement-master/src/css/mediaelementplayer.css" />-->
         <link rel="stylesheet" href="css/styles.css" />
         
-        <!--<script>
-            $(document).ready(function(){
-                $('audio,video').mediaelementplayer();
-            });
-        </script>-->
+        <script src="mediaelement-master/build/mediaelement-and-player.min.js"></script>
+
+    <link rel="stylesheet" href="mediaelement-master/build/mediaelementplayer.min.css" />
+
+       
     </head>
     <body>
         

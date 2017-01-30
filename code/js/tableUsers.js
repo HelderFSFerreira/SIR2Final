@@ -71,7 +71,7 @@ function populateTable (musics) {
     $("#infostatics").append(info);
 
     $("#musicas").append(tablebody);
-    $("#musicas").DataTable();
+    //$("#musicas").DataTable();
 }
 
 
