@@ -1,3 +1,4 @@
+var playlist;
 function callMusicTemplate(id){
     genTemplateMusic();
     callAjaxMusic(id);
@@ -14,6 +15,7 @@ function callAjaxMusic(playlistid){
         success: function (response) {
             if(response.status != "-1"){
                 populateTable(response.playlists);
+                playlist = playlistid;
             }else{
                 $("#thumbnailPlaylistsHome2").append($("<tbody/>").append($("<tr/>").append("Playlist vazia..")));
             }
@@ -97,11 +99,13 @@ function genTemplateMusic(){
     
     container.append(panelm);
     
+    //Musicas partilhadas
+    
     $("#root").append(container);
 }
 
 
-function populateTable (musicas) {
+function populateTable (musicas, pla) {
         $("#playlistname").append(musicas[0].playlistname);
         var count = 0;
         //make table header
@@ -155,11 +159,11 @@ function populateTable (musicas) {
 
 
 function ola(musica){
-    //aqui vou buscar as musicas pelo id
-    source = "../ws/musicreader.php?musicID="+musica;
-    $("#player").attr("src",source);
-    console.log(musica);
-    
+    var playerId = $('#player').closest('.mejs__container').attr('id');
+    var player = mejs.players[playerId];
+    source = "http://localhost/SIR2FINAL/ws/musicreader.php?musicID="+musica;
+    player.setSrc(source);
+    player.play();    
 }
 
 function remove(idmusica){
@@ -168,11 +172,11 @@ function remove(idmusica){
         url: '../ws/removeFromPlaylist.php',
         dataType: 'json',
         data: {
-            playlistID: playlistId,
+            playlistID: playlist,
             musicaID : idmusica
         },
         success: function (response) {
-            console.log(response);
+            callMusicTemplate(playlist);
         },
         error: function (xhr, ajaxOptions, thrownError) {
             console.log("entrei aqui2");
