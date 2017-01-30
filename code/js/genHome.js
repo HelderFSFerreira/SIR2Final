@@ -1,10 +1,34 @@
 $(document).ready(function(){
-    callAjaxHome();
     genTemplateHome();
+    callAjaxHome();
 });
 
 
 function callAjaxHome(){
+    
+    $("#btnAddNewPlaylist").on("click", function (e) {
+    console.log("ola");
+        if ($('#nameNewPlaylist').val() != "") {
+            $.ajax({
+                type: 'POST',
+                url: '../ws/addNewPlaylist.php',
+                dataType: 'json',
+                data: {
+                    userId: useridphp,
+                    namePlaylist: $('#nameNewPlaylist').val(),
+                },
+                success: function (response) {
+                    $('#nameNewPlaylist').val("");
+                    repopulateTablePlaylists();
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    console.log("Erro");
+                    console.log(xhr);
+                }
+            });
+        }
+    });
+    
     $.ajax({
         type: 'POST',
         url: '../ws/getUserPlaylists.php',
@@ -38,30 +62,12 @@ function callAjaxHome(){
           console.log("entrei aqui2");
           //console.log(xhr);
         }
-    });
+    });    
     
-    $("#btnAddNewPlaylist").click(function (e) {
-        if ($('#nameNewPlaylist').val() != "") {
-            $.ajax({
-                type: 'POST',
-                url: '../ws/addNewPlaylist.php',
-                dataType: 'json',
-                data: {
-                    userId: useridphp,
-                    namePlaylist: $('#nameNewPlaylist').val(),
-                },
-                success: function (response) {
-                    $('#nameNewPlaylist').val("");
-                    repopulateTablePlaylists();
-                },
-                error: function (xhr, ajaxOptions, thrownError) {
-                    console.log("Erro");
-                    console.log(xhr);
-                }
-            });
-        }
-    });
 }
+
+
+
 
 function genTemplateHome(){
     //container
@@ -78,7 +84,7 @@ function genTemplateHome(){
     //thumbnails
     thumb = $("<div/>").addClass("row").attr("id","thumbnailPlaylistsHome");
     playlistnamebox = $("<input/>").attr({id:"nameNewPlaylist", type:"text", placeholder: "New Playlist Names"});
-    btAddPlaylist = $("<button/>").addClass("btn btn-warning").attr({type:"button", id:"btnAddNewPlaylist"});
+    btAddPlaylist = $("<button/>").addClass("btn btn-warning").attr({id:"btnAddNewPlaylist", type:"button"});
     btText = "Criar nova Playlist";
     spanbutton = $("<span/>").addClass("glyphicon glyphicon-plus").attr("aria-hidden","true");
     
@@ -248,3 +254,4 @@ function repopulateTablePlaylists() {
         }
     });
 }
+
