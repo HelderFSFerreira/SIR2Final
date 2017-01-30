@@ -40,7 +40,11 @@ input{
 .table td:hover {
         background: #ffa;
         cursor: pointer;
-    }
-    .table td.current {
-        background: #cddfff;
-    }
+}
+.table td.current {
+    background: #cddfff;
+}
+
+.ui-autocomplete {
+    z-index: 1100;
+}

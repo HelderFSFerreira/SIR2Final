@@ -13,7 +13,6 @@ if (isset($_POST['username'])) {
 
     $query = "SELECT username from users WHERE username LIKE '$userName%'";
     $res = $conn->query($query);
-    var_dump($res);
 
     $rowNumber = mysqli_num_rows($res);
 

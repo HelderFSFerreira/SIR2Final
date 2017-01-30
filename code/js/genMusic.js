@@ -179,5 +179,59 @@ function remove(idmusica){
             //console.log(xhr);
         }
     });
-    
 }
+
+var speak=0;
+
+
+$('#userToShare').on('focus', function() {
+    $(this).autocomplete({
+        source: function(request, response) {
+            $.ajax({
+                type: 'POST',
+                url: '../ws/getAllUsernames.php',
+                dataType: 'json',
+                data: {
+                    username: $('#userToShare').val(),
+                },
+                success: function(data) {
+                    if (data.status!=-1) {
+                        var arrayUsers = [];
+                        data.users.forEach(function (res) {
+                            arrayUsers.push(res.username);
+                        });
+                    }
+                    console.log(arrayUsers);
+                    response(arrayUsers);
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    console.log(thrownError);
+                }
+            });
+        },
+        select: function (a, b) {
+            console.log(a);
+            console.log(b);
+        }
+    });
+});
+
+$('#addUserShare').click(function () {
+    if ($('#userToShare').val()!="") {
+        $.ajax({
+            type: 'POST',
+            url: '../ws/addUserToPlaylist',
+            dataType: 'json',
+            data: {
+                playlistID: playlistId,
+                username: $('#userToShare').val(),
+            },
+            success: function(data) {
+                console.log(data);
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                console.log(thrownError);
+            }
+        });
+    }
+});

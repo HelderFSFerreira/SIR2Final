@@ -23,6 +23,10 @@ session_write_close();
         <script src="js/login.js"></script>
         <script src="js/bootstrap-confirmation.min.js"></script>
         <script src="js/mediaplayer.js"></script>
+
+        <!-- JQuery UI -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+        <link src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
         
 
         <script src="mediaelement-master/src/js/player.js"></script>
