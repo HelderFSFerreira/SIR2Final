@@ -198,15 +198,22 @@ function Populatetablemusics (musics) {
     }
 
     $("#musicas").append(tablebody);
-    $("#musicas").DataTable();
+    var table = $("#musicas").DataTable();
+    
+    $('#musicas tbody').on( 'click', 'tr', function () {
+        name = table.row( this ).data()[2];
+        //play(name);
+    } );
 }
 
 
+
 function play(musica){
-    //aqui vou buscar as musicas pelo id
-    source = "../ws/musicreader.php?musicID="+musica;
-    $("#player").attr("src",source);
-    console.log(musica);
+    var playerId = $('#player').closest('.mejs__container').attr('id');
+    var player = mejs.players[playerId];
+    source = "http://localhost/SIR2FINAL/ws/musicreader.php?musicID="+musica;
+    player.setSrc(source);
+    player.play();
     
 }
 
@@ -255,4 +262,5 @@ function repopulateTablePlaylists() {
         }
     });
 }
+
 
