@@ -23,6 +23,29 @@ function callAjaxMusic(playlistid){
             //console.log(xhr);
         }
     });
+    
+    
+    $("#btnRemovePlaylist").click(function () {
+        $.ajax({
+            type: 'POST',
+            url: '../ws/removePlaylist.php',
+            dataType: 'json',
+            data: {
+                playlistID: playlistid,
+            },
+            success: function (response) {
+                if (response.status==1) {
+                    window.location.replace("home.php");
+                } else {
+                    console.log("Status2");
+                }
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                console.log("Erro");
+                console.log(xhr);
+            }
+        });
+    });
 }
 
 
@@ -46,7 +69,7 @@ function genTemplateMusic(){
     smalltitle = $("<small/>").attr("id","playlistname");
     //col3
     col3 = $("<div/>").addClass("col-md-3");
-    btnpartilha = $("<button/>").attr({type:"button",id:"btnSharePlaylist"}).addClass("btn btn-success");
+    btnpartilha = $("<button/>").attr({type:"button",id:"btnSharePlaylist","data-toggle":"modal","data-target":"#myModal2"}).addClass("btn btn-success");
     btsharespan = $("<span/>").addClass("glyphicon glyphicon-plus").attr("aria-hidden","true");
     btsharetext = "Partilhar";
     btnremover = $("<button/>").attr({type:"button",id:"btnRemovePlaylist"}).addClass("btn btn-danger");

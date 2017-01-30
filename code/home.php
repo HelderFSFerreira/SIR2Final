@@ -4,6 +4,7 @@
 ?>  
 <script src="js/genHome.js"></script>
 <script src="js/genMusic.js"></script>
+<script src="js/removePlaylist.js"></script>
   <script>
     var useridphp = <?php echo $userID;?>;
 </script>  
