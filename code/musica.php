@@ -32,9 +32,6 @@
           <div class="panel panel-default">
             <table class="table" id="thumbnailPlaylistsHome2">
             </table>
-        </div>
-          <div id="infostatics"></div>
-        </div>
     </div>
     
     
@@ -44,7 +41,6 @@
 
 <script type="text/javascript">
         var playlistId = <?php echo $_GET['idplaylist']; ?>;
-        console.log(playlistId);
 </script>
 
 

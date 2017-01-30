@@ -1,7 +1,6 @@
-$(function(){
+/*$(function(){
         $('video,audio').mediaelementplayer({
             success: function (mediaElement, domObject) {
-                console.log("aqui");
                 mediaElement.addEventListener('ended', function (e) {
                     mejsPlayNext(e.target);
                 }, false);
@@ -42,4 +41,4 @@ $(function(){
             currentPlayer.setSrc(audio_src);
             currentPlayer.play();
         }
-    }
+    }*/

@@ -1,4 +1,4 @@
-$(document).ready(function(){
+function callAjaxMusic(){
     $.ajax({
         type: 'POST',
         url: '../ws/getUserMusicbyPlayList.php',
@@ -18,8 +18,12 @@ $(document).ready(function(){
             //console.log(xhr);
         }
     });
+}
 
-});
+
+function genTemplateMusic(){
+    $(".root").append("ola");
+}
 
 
 function populateTable (musicas) {
