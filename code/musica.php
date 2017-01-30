@@ -1,6 +1,6 @@
 <?php
     include('header.php');
-    include ('modal.html');
+    include('modal.html');
 ?>
 
 
@@ -15,9 +15,14 @@
                 </div>
                   <div class="col-md-8">
                     <h1>Playlist: <small id="playlistname"></small></h1>
+<<<<<<< HEAD
                 </div>
                   <div class="col-md-3">
                     <button type="button" class="btn btn-success" id="btnSharePlaylist">
+=======
+                </div><div class="col-md-3">
+                    <button type="button" class="btn btn-success" id="btnSharePlaylist" data-toggle="modal" data-target="#myModal2">
+>>>>>>> 02c8c4964c506c8cf0d8e30054f53095e9c83177
                         <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Partilhar
                     </button>
                   <button type="button" class="btn btn-danger" id="btnRemovePlaylist">
@@ -39,7 +44,6 @@
     </div>
 </div>
 <script src="js/removePlaylist.js"></script>
-<script src="js/tablemusicbyplaylist.js"></script>
 
 <script type="text/javascript">
         var playlistId = <?php echo $_GET['idplaylist']; ?>;
