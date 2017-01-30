@@ -100,8 +100,8 @@ function genTemplateHome(){
     //form
     formupload = $("<form/>").attr({action: "../ws/uploadMusic.php", method:"post", enctype:"multipart/form-data"});
     //inputs do form
-    inputmusic = $("<input/>").attr({type:"file multiple", name:"music[]"});
-    inputmusichidden = $("<input/>").attr({type:"hidden",name:"user", value:"<?php echo $userID; ?>"});
+    inputmusic = $("<input/>").attr({type:"file", multiple:"", name:"music[]"});
+    inputmusichidden = $("<input/>").attr({type:"hidden", name:"userlist", value:useridphp});
     inputsubmition = $("<input/>").attr({type:"submit", value:"Submeter"}).addClass("btn btn-warning");
     
     formupload.append(inputmusic).append(inputmusichidden).append(inputsubmition);
@@ -112,7 +112,7 @@ function genTemplateHome(){
     container2.append(panel2);
     
     
-    $("#root").append(container).append(container2);
+    $("#root").append(container).append(container2);    
 }
 
 //Carrega playlists

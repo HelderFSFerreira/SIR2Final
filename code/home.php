@@ -4,13 +4,13 @@
 ?>  
 <script src="js/genHome.js"></script>
 <script src="js/genMusic.js"></script>
-<script>
+  <script>
     var useridphp = <?php echo $userID;?>;
-</script>     
+</script>  
 <div id="root">
 
-
-</div>          
+</div>   
+ 
 
 <?php include('audio.php') ?>
 <?php include('footer.php'); ?>
