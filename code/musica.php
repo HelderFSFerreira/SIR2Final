@@ -1,12 +1,8 @@
 <?php
     include('header.php');
     include ('modal.html');
-?> 
-<script type="text/javascript">
-        var playlistId = <? echo $_GET['idplaylist']; ?>;
-        console.log("entrei");
-</script>
-<script src="js/tablemusicbyplaylist.js"></script>
+?>
+
 
 <div class="container">
 
@@ -22,7 +18,7 @@
                     <button type="button" class="btn btn-success" id="btnSharePlaylist">
                         <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Partilhar
                     </button>
-                  <button type="button" class="btn btn-danger" id="btnSharePlaylist">
+                  <button type="button" class="btn btn-danger" id="btnRemovePlaylist">
                         <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Remover
                     </button>
                 </div>
@@ -41,6 +37,8 @@
     <?php include('audio.php') ?>
       
 </div>
+<script src="js/removePlaylist.js"></script>
+<script src="js/tablemusicbyplaylist.js"></script>
 
 <script type="text/javascript">
         var playlistId = <?php echo $_GET['idplaylist']; ?>;
