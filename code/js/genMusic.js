@@ -2,15 +2,8 @@ var playlist;
 function callMusicTemplate(id){
     genTemplateMusic();
     callAjaxMusic(id);
-    playlist=id;
-    
-    console.log(useridphp);
-    
-    //verificar se é dono
-    //btnSharePlaylist
-    //btnRemovePlaylist
-    $("#btnSharePlaylist").attr('disabled','disabled');
-    
+    playlist=id;    
+    verifica(id,useridphp);
 }
 
 function callAjaxMusic(playlistid){
@@ -322,4 +315,28 @@ function refillTableUsersShared() {
             console.log(playlist);
         }
     });
+}
+
+function verifica(idpla, idus){
+    console.log(idpla);
+    console.log(idus);
+    
+    $.ajax({
+        type: 'POST',
+        url: '../ws/getPlaylistOwner.php',
+        dataType: 'json',
+        data: {
+            playlistID: playlist,
+        },
+        success: function(data) {
+            if (data.status==1) {
+                fillTableUsersShared(data.users);
+            }
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+            console.log(thrownError);
+            console.log(playlist);
+        }
+    });
+    
 }
