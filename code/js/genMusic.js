@@ -2,6 +2,7 @@ var playlist;
 function callMusicTemplate(id){
     genTemplateMusic();
     callAjaxMusic(id);
+    playlist=id;
 }
 
 function callAjaxMusic(playlistid){
@@ -246,3 +247,71 @@ $('#addUserShare').click(function () {
         });
     }
 });
+
+$('#myModal2').on('shown.bs.modal', function (e) {
+    refillTableUsersShared();
+});
+
+$('#myModal2').on('hidden.bs.modal', function (e) {
+    $("#tableUsersSharedPlaylist > tbody").html("");
+});
+
+function fillTableUsersShared(users) {
+
+    toHtml = "<tbody>";
+
+    for (var i=0;i<users.length;i++) {
+        id = users[i].id;
+        name = users[i].name;
+        username = users[i].username;
+
+        toHtml += "<tr><td>"+id+"</td><td>"+username+"</td><td>"+name+"</td>";
+        fctRemove = "removeSharedUser("+id+")";
+        botao = "<td><button type='button' class='btn btn-danger btn-xs' onclick='"+fctRemove+"'><span class='glyphicon glyphicon-remove-circle'></span></td></tr>"
+        toHtml += botao;
+    }
+    toHtml+="</tbody>";
+    $("#tableUsersSharedPlaylist").append(toHtml);
+    $("#tableUsersSharedPlaylist").DataTable();
+}
+
+function removeSharedUser(usrid) {
+    console.log("Entrei");
+    $.ajax({
+        type: 'POST',
+        url: '../ws/delUserPlaylist.php',
+        dataType: 'json',
+        data: {
+            playlistID: playlist,
+            userID: usrid,
+        },
+        success: function(data) {
+            $("#tableUsersSharedPlaylist > tbody").html("");
+            refillTableUsersShared();
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+            console.log(thrownError);
+            console.log(playlist);
+        }
+    });
+}
+
+function refillTableUsersShared() {
+    $.ajax({
+        type: 'POST',
+        url: '../ws/getUsersWithPlaylistShared.php',
+        dataType: 'json',
+        data: {
+            playlistID: playlist,
+        },
+        success: function(data) {
+            if (data.status==1) {
+                fillTableUsersShared(data.users);
+            }
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+            console.log(thrownError);
+            console.log(playlist);
+        }
+    });
+}
