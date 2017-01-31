@@ -78,7 +78,11 @@ function genTemplateMusic(){
     btremovespan = $("<span/>").addClass("glyphicon glyphicon-plus").attr("aria-hidden","true");
     btremovetext = "Remover";
     //title number two
-    titlemusicas = $("<h3/>").html("Musicas");
+    titlemusicas = $("<h2/>").html("Musicas");
+    //botao voltar
+    btbackspan = $("<span/>").addClass("glyphicon glyphicon-arrow-left");
+    textbuttonback = "  Voltar";
+    btbacktoplost = $("<button/>").addClass("btn btn-default").attr({type:"button",id:"btbacktoplaylist",onclick:"callHomefromPlaylist()"}).append(btbackspan).append(textbuttonback);
     //div musicas lista
     panelmmusicas = $("<div/>").addClass("panel panel-default");
     tablemusicas = $("<table/>").addClass("table").attr("id","thumbnailPlaylistsHome2");
@@ -94,7 +98,7 @@ function genTemplateMusic(){
     panelmheader.append(colunas);
     panelmmusicas.append(tablemusicas);
     
-    panelmbody.append(panelmheader).append(titlemusicas).append(panelmmusicas);
+    panelmbody.append(btbacktoplost).append(panelmheader).append(titlemusicas).append(panelmmusicas);
     panelm.append(panelmbody);
     
     container.append(panelm);

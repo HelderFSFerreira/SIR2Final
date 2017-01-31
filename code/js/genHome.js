@@ -3,6 +3,12 @@ $(document).ready(function(){
     callAjaxHome();
 });
 
+function callHomefromPlaylist(){
+    $("#root").empty();
+    genTemplateHome();
+    callAjaxHome();
+}
+
 
 function callAjaxHome(){
     
