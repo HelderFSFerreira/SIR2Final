@@ -14,6 +14,7 @@ if (isset($_POST['userId']) AND isset($_POST['namePlaylist'])) {
 
     $query = "INSERT INTO `playlist`(`owner`, `name`, `datecreation`) VALUES ('$userId','$playlistName',NOW())";
     $res = $conn->query($query);
+    
 
     if (!$res) {
         $rows = array('status'=>'-1');

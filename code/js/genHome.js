@@ -9,11 +9,9 @@ function callHomefromPlaylist(){
     callAjaxHome();
 }
 
-
 function callAjaxHome(){
     
     $("#btnAddNewPlaylist").on("click", function (e) {
-    console.log("ola");
         if ($('#nameNewPlaylist').val() != "") {
             $.ajax({
                 type: 'POST',
@@ -44,6 +42,7 @@ function callAjaxHome(){
         },
         success: function (response) {
             populateTableplaylists(response.playlists);
+            console.log(response);
         },
         error: function (xhr, ajaxOptions, thrownError) {
             console.log("entrei aqui2");
@@ -130,12 +129,16 @@ function genTemplateHome(){
 //Carrega playlists
 function populateTableplaylists (playlists) {
     for(i = 0; i < playlists.length; i++){
+        console.log(playlists);
+        owner = " - " +playlists[i].username;
         name = playlists[i].name;
         idplay = playlists[i].id;
+        own = $("<small/>").append(owner);
         n = $("<option>").attr("value",idplay).html(name);
+        $('playlistsmodal').html("");
         $('#playlistsmodal').append(n);
         //1
-        title = $("<h3/>").append(name);
+        title = $("<h3/>").append(name).append(own);
         //2
         titlecentered = $("<center/>");
         //2.5
@@ -167,9 +170,10 @@ function Populatetablemusics (musics) {
     tablelineadiciona = $("<th/>").append("Play");
     tableline1 = $("<th/>").append("Musica");
     tableline3 = $("<th/>").append("Data");
+    tableline4 = $("<th/>").append("Remover");
     tablehead = $("<thead/>");
     tablerow = $("<tr/>");
-    tablerow.append(tablelinebotao).append(tablelineadiciona).append(tableline1).append(tableline3);
+    tablerow.append(tablelinebotao).append(tablelineadiciona).append(tableline1).append(tableline3).append(tableline4);
     tablehead.append(tablerow);
     $("#musicas").append(tablehead);
     tablebody = $("<tbody/>");
@@ -195,11 +199,16 @@ function Populatetablemusics (musics) {
         //dono
         date = musics[i].dateupload;
         tableline3 = $("<td/>").append(date);
-
+        //remover  
+        musremove = "removemusica(\""+musics[i].name+"\","+musics[i].id+")";
+        span3 = $("<span/>").addClass("glyphicon glyphicon-minus-sign").attr('id', idmusicplaylist);
+        buttonremove = $("<button/>").attr("type","button").addClass("btn btn-danger btn-xs").attr("onclick",musremove).append(span3);
+        tableremovemusic = $("<td/>").append(buttonremove);
+        
         // 2 - inserir as rows
 
         tablerow = $("<tr/>");
-        tablerow.append(tableadd).append(tableplay).append(tableline1).append(tableline3);
+        tablerow.append(tableadd).append(tableplay).append(tableline1).append(tableline3).append(tableremovemusic);
         tablebody.append(tablerow);
     }
 
@@ -221,6 +230,24 @@ function play(musica){
     player.setSrc(source);
     player.play();
     
+}
+
+function removemusica(name,id){
+    $.ajax({
+        type: 'POST',
+        url: '../ws/removeMusic.php',
+        dataType: 'json',
+        data: {
+            musicname : name,
+            musicid : id
+        },
+        success: function (response) {
+            rePopulatetablemusics();
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+            console.log("aqu31231i");
+        }
+    });
 }
 
 function setvalues(idmusica){
@@ -267,6 +294,28 @@ function repopulateTablePlaylists() {
             console.log(xhr);
         }
     });
+}
+
+function rePopulatetablemusics(){
+    $.ajax({
+        type: 'POST',
+        url: '../ws/getUserMusic.php',
+        dataType: 'json',
+        data: {
+            userId: useridphp
+        },
+        success: function (response) {
+            //console.log(response);
+            if (response.status!="-1") {
+                $("#musicas").html("");
+                Populatetablemusics(response.playlists);
+            }
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+          console.log("entrei aqui2");
+          //console.log(xhr);
+        }
+    });  
 }
 
 
