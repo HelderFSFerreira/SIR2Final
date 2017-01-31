@@ -249,23 +249,11 @@ $('#addUserShare').click(function () {
 });
 
 $('#myModal2').on('shown.bs.modal', function (e) {
-    $.ajax({
-        type: 'POST',
-        url: '../ws/getUsersWithPlaylistShared.php',
-        dataType: 'json',
-        data: {
-            playlistID: playlist,
-        },
-        success: function(data) {
-            if (data.status==1) {
-                fillTableUsersShared(data.users);
-            }
-        },
-        error: function (xhr, ajaxOptions, thrownError) {
-            console.log(thrownError);
-            console.log(playlist);
-        }
-    });
+    refillTableUsersShared();
+});
+
+$('#myModal2').on('hidden.bs.modal', function (e) {
+    $("#tableUsersSharedPlaylist > tbody").html("");
 });
 
 function fillTableUsersShared(users) {
@@ -287,6 +275,43 @@ function fillTableUsersShared(users) {
     $("#tableUsersSharedPlaylist").DataTable();
 }
 
-function removeSharedUser(id) {
-    
+function removeSharedUser(usrid) {
+    console.log("Entrei");
+    $.ajax({
+        type: 'POST',
+        url: '../ws/delUserPlaylist.php',
+        dataType: 'json',
+        data: {
+            playlistID: playlist,
+            userID: usrid,
+        },
+        success: function(data) {
+            $("#tableUsersSharedPlaylist > tbody").html("");
+            refillTableUsersShared();
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+            console.log(thrownError);
+            console.log(playlist);
+        }
+    });
+}
+
+function refillTableUsersShared() {
+    $.ajax({
+        type: 'POST',
+        url: '../ws/getUsersWithPlaylistShared.php',
+        dataType: 'json',
+        data: {
+            playlistID: playlist,
+        },
+        success: function(data) {
+            if (data.status==1) {
+                fillTableUsersShared(data.users);
+            }
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+            console.log(thrownError);
+            console.log(playlist);
+        }
+    });
 }
