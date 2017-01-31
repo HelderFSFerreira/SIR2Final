@@ -53,9 +53,9 @@ session_write_close();
                         <li><a class="navbarbrand" href="">Perfil</a></li> 
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <p class="navbar-text" id="nomedouser">Nelson Rodrigues</p>
+                        <p class="navbar-text" id="nomedouser"></p>
                         <a class="navbar-brand" href="home.php">
-                            <img alt="Brand" src="http://www.pousadalabonita.com/images/bg4.jpg" style="width:30px;height:30px;right:0;">
+                            <img alt="Brand" src="images/1404814219.png" style="width:30px;height:30px;right:0;">
                           </a>
                         <li><a class="navbarbrand" href="logout.php" id="logout">Logout</a></li>
                     </ul>
