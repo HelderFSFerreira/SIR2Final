@@ -236,8 +236,7 @@ $('#addUserShare').click(function () {
                 username: $('#userToShare').val(),
             },
             success: function(data) {
-                console.log($('#userToShare').val());
-                console.log(data);
+                refillTableUsersShared();
             },
             error: function (xhr, ajaxOptions, thrownError) {
                 console.log($('#userToShare').val());
@@ -286,7 +285,6 @@ function removeSharedUser(usrid) {
             userID: usrid,
         },
         success: function(data) {
-            $("#tableUsersSharedPlaylist > tbody").html("");
             refillTableUsersShared();
         },
         error: function (xhr, ajaxOptions, thrownError) {
@@ -305,6 +303,7 @@ function refillTableUsersShared() {
             playlistID: playlist,
         },
         success: function(data) {
+            $("#tableUsersSharedPlaylist > tbody").html("");
             if (data.status==1) {
                 fillTableUsersShared(data.users);
             }
