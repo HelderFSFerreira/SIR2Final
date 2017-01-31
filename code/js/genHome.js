@@ -211,7 +211,7 @@ function Populatetablemusics (musics) {
 function play(musica){
     var playerId = $('#player').closest('.mejs__container').attr('id');
     var player = mejs.players[playerId];
-    source = "http://localhost/SIR2FINAL/ws/musicreader.php?musicID="+musica;
+    source = "../ws/musicreader.php?musicID="+musica;
     player.setSrc(source);
     player.play();
     
