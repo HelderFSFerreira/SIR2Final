@@ -20,9 +20,47 @@ session_write_close();
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.16.0/jquery.validate.min.js"></script>
     <script src="js/login.js"></script>
+    
+    <script>
+        window.fbAsyncInit = function() {
+            FB.init({
+              appId      : '1092804917511677',
+              xfbml      : true,
+              version    : 'v2.8'
+            });
+
+            FB.getLoginStatus(function(response){
+                if(response.status === 'connected'){
+                    $("#nomedouser").html("int");
+                    $("#status").html("int");
+                }else if(response.status === 'not_authorized'){
+                    $("#nomedouser").html("not");
+                    $("#status").html("not");
+                }else{
+                    $("#nomedouser").html("out");
+                    $("#status").html("out");
+                }
+            });
+  };
+
+
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+        
+    </script>
 </head>
 <body>
 <div class="container">
+    <div id="status"></div>
+    <button onclick="login()">login</button>
+    <button onclick="logout()">logout</button>
+    
     <div class="row">
             
         <div class="main">

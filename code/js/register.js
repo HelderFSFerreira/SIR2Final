@@ -8,7 +8,7 @@ $(document).ready(function() {
         function (value, element) {
             $.ajax({
                 type: 'POST',
-                url: 'http://localhost/SIRFinal/ws/checkUserRegistered.php',
+                url: 'http://localhost/SIR2Final/ws/checkUserRegistered.php',
                 dataType: 'json',
                 data: {
                     user: value
@@ -52,7 +52,7 @@ $(document).ready(function() {
         if ($('#form1').valid()) {
             $.ajax({
                 type: 'POST',
-                url: 'http://localhost/SIRFinal/ws/newuser.php',
+                url: 'http://localhost/SIR2Final/ws/newuser.php',
                 dataType: 'json',
                 data: {
                     user: $('#username').val(),

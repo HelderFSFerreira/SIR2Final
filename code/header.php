@@ -23,6 +23,7 @@ session_write_close();
         <script src="js/login.js"></script>
         <script src="js/bootstrap-confirmation.min.js"></script>
         <script src="js/mediaplayer.js"></script>
+        
 
         <!-- JQuery UI -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
@@ -56,7 +57,7 @@ session_write_close();
                         <a class="navbar-brand" href="home.php">
                             <img alt="Brand" src="http://www.pousadalabonita.com/images/bg4.jpg" style="width:30px;height:30px;right:0;">
                           </a>
-                        <li><a class="navbarbrand" href="logout.php">Logout</a></li>
+                        <li><a class="navbarbrand" href="logout.php" id="logout">Logout</a></li>
                     </ul>
                 </div>
             </div>
