@@ -5,6 +5,11 @@ body{
     font-family: arial, sans-serif;
 }
 
+
+.color{
+    background-color:black;
+}
+
 .navbarbrand{
     color:white;
 }

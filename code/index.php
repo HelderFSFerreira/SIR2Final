@@ -61,8 +61,8 @@ session_write_close();
                         <input type="checkbox">
                         Remember me </label>
                 </div>
-                <input type="button" class="btn btn btn-primary" id="loginBTN" value="Login">
-                </input>
+                <input type="button" class="btn btn btn-primary" id="loginBTN" value="Login"/>
+                
             </form>
 
         </div>
