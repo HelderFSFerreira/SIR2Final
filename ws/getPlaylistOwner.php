@@ -5,8 +5,8 @@
  * Date: 31/01/2017
  * Time: 17:31
  */
-if (isset($_GET['playlistID'])) {
-    $playlistID = $_GET['playlistID'];
+if (isset($_POST['playlistID'])) {
+    $playlistID = $_POST['playlistID'];
 
     include_once 'connection.php';
 

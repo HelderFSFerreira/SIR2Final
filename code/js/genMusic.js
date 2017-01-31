@@ -317,24 +317,27 @@ function refillTableUsersShared() {
 }
 
 function verifica(idpla, idus){
-    console.log(idpla);
-    console.log(idus);
-    
     $.ajax({
         type: 'POST',
         url: '../ws/getPlaylistOwner.php',
         dataType: 'json',
         data: {
-            playlistID: playlist,
+            playlistID: idpla,
         },
         success: function(data) {
-            if (data.status==1) {
-                fillTableUsersShared(data.users);
-            }
+            dat = parseInt(data.owner);
+            if(dat != idus){
+                console.log("aqui");
+                $("#btnRemovePlaylist").attr("disabled","true");
+                $("#btnSharePlaylist").attr("disabled","true");
+            }else{
+                
+            }/*
+            btnRemovePlaylist
+            btnSharePlaylist*/
         },
         error: function (xhr, ajaxOptions, thrownError) {
-            console.log(thrownError);
-            console.log(playlist);
+            console.log("erro!");
         }
     });
     
