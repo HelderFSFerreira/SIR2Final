@@ -3,6 +3,14 @@ function callMusicTemplate(id){
     genTemplateMusic();
     callAjaxMusic(id);
     playlist=id;
+    
+    console.log(useridphp);
+    
+    //verificar se é dono
+    //btnSharePlaylist
+    //btnRemovePlaylist
+    $("#btnSharePlaylist").attr('disabled','disabled');
+    
 }
 
 function callAjaxMusic(playlistid){
