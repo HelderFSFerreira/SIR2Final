@@ -66,7 +66,7 @@ function genTemplateMusic(){
     colunas = $("<div/>").addClass("row");
     //col1
     col1 = $("<div/>").addClass("col-md-1");
-    imgplay = $("<img/>").attr({src:"images/album2.jpg", style:"width:80px; height:80px"});
+    imgplay = $("<img/>").attr({src:"images/album2.jpg", style:"width:80px; height:80px",id:"imageplay"});
     //col2
     col2 = $("<div/>").addClass("col-md-8");
     titleplist = $("<h1/>").html("PlayList:");
@@ -328,8 +328,8 @@ function verifica(idpla, idus){
             dat = parseInt(data.owner);
             if(dat != idus){
                 console.log("aqui");
-                $("#btnRemovePlaylist").attr("disabled","true");
-                $("#btnSharePlaylist").attr("disabled","true");
+                $("#btnRemovePlaylist").attr("disabled","true").hide();
+                $("#btnSharePlaylist").attr("disabled","true").hide();
             }else{
                 
             }/*

@@ -46,12 +46,16 @@ session_write_close();
                 <div class="navbar-header">
                     <a href="home.php" class="navbar-left"><img src="images/icon.png" style="width:50px; height:50px;"></a><a class="navbar-brand" href="home.php"> NHIT MUSIC </a>
                 </div>
-                <div class="nav navbar-nav">
-                    <ul class="nav navbar-nav">
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-left">
                         <li class="active"><a class="navbarbrand" href="home.php">Home</a></li>
                         <li><a class="navbarbrand" href="">Perfil</a></li> 
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
+                        <p class="navbar-text" id="nomedouser">Nelson Rodrigues</p>
+                        <a class="navbar-brand" href="home.php">
+                            <img alt="Brand" src="http://www.pousadalabonita.com/images/bg4.jpg" style="width:30px;height:30px;right:0;">
+                          </a>
                         <li><a class="navbarbrand" href="logout.php">Logout</a></li>
                     </ul>
                 </div>
