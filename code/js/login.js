@@ -24,9 +24,8 @@ $(document).ready(function(){
         });
             
     }
-    
-    $('#loginBTN').click(function () {
+        $('#loginBTN').click(function () {
         btnSend();
     });    
-    
+
 });

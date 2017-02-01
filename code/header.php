@@ -23,6 +23,7 @@ session_write_close();
         <script src="js/login.js"></script>
         <script src="js/bootstrap-confirmation.min.js"></script>
         <script src="js/mediaplayer.js"></script>
+        <script src="js/genUserProfile.js"></script>
         
 
         <!-- JQuery UI -->
@@ -49,8 +50,8 @@ session_write_close();
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-left">
-                        <li class="active"><a class="navbarbrand" href="home.php">Home</a></li>
-                        <li><a class="navbarbrand" href="">Perfil</a></li> 
+                        <li class="active" id="homenavbar"><a class="navbarbrand" id="homepage">Home</a></li>
+                        <li id="usernavbar"><a class="navbarbrand" id="profileuser">Perfil</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <p class="navbar-text" id="nomedouser"></p>
