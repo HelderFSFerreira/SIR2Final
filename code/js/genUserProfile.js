@@ -24,8 +24,8 @@ function callAjaxUser(){
                 genTemplateUser(response);
             },
             error: function (xhr, ajaxOptions, thrownError) {
-                console.log("entrei aqui2");
-                console.log(xhr);
+                //console.log("entrei aqui2");
+                //console.log(xhr);
             }
         });
     }
@@ -53,8 +53,8 @@ function getlistmusics(lista){
             }
         },
         error: function (xhr, ajaxOptions, thrownError) {
-          console.log("entrei aqui2");
-          //console.log(xhr);
+          //console.log("entrei aqui2");
+          ////console.log(xhr);
         }
     }); 
 }
@@ -75,16 +75,16 @@ function getlistplaylists(play){
             }
         },
         error: function (xhr, ajaxOptions, thrownError) {
-            console.log("entrei aqui2");
-            console.log(xhr);
+            //console.log("entrei aqui2");
+            //console.log(xhr);
         }
     });
 }
 
 
 function genTemplateUser(userinfo){
-    console.log(userinfo.playlists[2].nummusics);
-    console.log(userinfo.playlists[1].numplaylists);
+    //console.log(userinfo.playlists[2].nummusics);
+    //console.log(userinfo.playlists[1].numplaylists);
     
     //container
     containeruser = $("<div/>").addClass("container");

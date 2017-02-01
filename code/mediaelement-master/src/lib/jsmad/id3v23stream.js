@@ -58,7 +58,7 @@ var decodeTerminatedString = function(header, stream) {
 		}
 		mimetype += c;
 	}
-	console.log("mimetype = " + mimetype);
+	//console.log("mimetype = " + mimetype);
 	
 	var filename = "";
 	while(true) {
@@ -68,7 +68,7 @@ var decodeTerminatedString = function(header, stream) {
 		}
 		filename += c;
 	}
-	console.log("filename = " + filename);
+	//console.log("filename = " + filename);
 	
 	var contentDescription = "";
 	while(true) {
@@ -78,7 +78,7 @@ var decodeTerminatedString = function(header, stream) {
 		}
 		contentDescription += c;
 	}
-	console.log("contentDescription = " + contentDescription);
+	//console.log("contentDescription = " + contentDescription);
 	
 	var objectName = stream.read(4);
 	
@@ -553,7 +553,7 @@ Mad.ID3v23Stream.prototype.read = function() {
             }
         } catch (e) {
             throw(e);
-            //console.log("ID3 Error: " + e);
+            ////console.log("ID3 Error: " + e);
         }
     }
     

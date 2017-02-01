@@ -239,7 +239,7 @@
 // 								}
 // 								break;
 // 							default:
-// 								console.log('vr ' + vr.id, propName, 'UNSUPPORTED property');
+// 								//console.log('vr ' + vr.id, propName, 'UNSUPPORTED property');
 // 						}
 //
 // 					} else {

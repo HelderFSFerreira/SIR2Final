@@ -258,7 +258,7 @@ const DailyMotionIframeRenderer = {
 								break;
 
 							default:
-								console.log('dm ' + dm.id, propName, 'UNSUPPORTED property');
+								//console.log('dm ' + dm.id, propName, 'UNSUPPORTED property');
 						}
 
 					} else {

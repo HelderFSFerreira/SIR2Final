@@ -83,7 +83,7 @@ public class SampleEntry extends Box {
             }
         }
 
-        throw _context.console.logAndBuildError("Couldn't find any '" + type + "' box");
+        throw _context.//console.logAndBuildError("Couldn't find any '" + type + "' box");
     }
 
     private function parseMp4aData(ba:ByteArray):ByteArray {

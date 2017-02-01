@@ -22,7 +22,7 @@ public class SegmentIndexFactory {
 
     private function traverseAndCreate(node:XML, representation:XML):SegmentIndex {
         if (node == null) {
-            throw _context.console.logAndBuildError("Couldn't find any 'SegmentTimeline', 'SegmentTemplate', " +
+            throw _context.//console.logAndBuildError("Couldn't find any 'SegmentTimeline', 'SegmentTemplate', " +
                     "'SegmentTemplate', 'SegmentList' or 'BaseURL' tag");
         }
 

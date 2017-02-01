@@ -7,7 +7,7 @@ Mad.Player = function (stream) {
 
     // default onProgress handler
     this.onProgress = function (playtime, total, preloaded) {
-        console.log("playtime = " + playtime + " / " + total + ", preloaded = " + preloaded);
+        //console.log("playtime = " + playtime + " / " + total + ", preloaded = " + preloaded);
     }
 };
 
@@ -18,17 +18,17 @@ Mad.Player.prototype.createDevice = function() {
 	this.frame = Mad.Frame.decode(this.frame, this.mpeg);
 	if (this.frame == null) {
 		if (this.mpeg.error == Mad.Error.BUFLEN) {
-			console.log("End of file!");
+			//console.log("End of file!");
 		}
 
-		console.log("First error! code = " + this.mpeg.error + ", recoverable ? = " + Mad.recoverable(this.mpeg.error));
+		//console.log("First error! code = " + this.mpeg.error + ", recoverable ? = " + Mad.recoverable(this.mpeg.error));
 		return;
 	}
 
 	this.channelCount = this.frame.header.nchannels();
 	this.sampleRate = this.frame.header.samplerate;
 
-	console.log("this.playing " + this.channelCount + " channels, samplerate = " + this.sampleRate + " audio, mode " + this.frame.header.mode);
+	//console.log("this.playing " + this.channelCount + " channels, samplerate = " + this.sampleRate + " audio, mode " + this.frame.header.mode);
 
 	this.offset = 0;
 	this.absoluteFrameIndex = 0;
@@ -42,7 +42,7 @@ Mad.Player.prototype.createDevice = function() {
 	var MAX_FRAMES_IN_BUFFER = 40;
 	
 	this.refill = function (sampleBuffer) {
-		//console.log("delta = " + (Date.now() - self.lastRebuffer) + ", asked for " + sampleBuffer.length);
+		////console.log("delta = " + (Date.now() - self.lastRebuffer) + ", asked for " + sampleBuffer.length);
 		self.lastRebuffer = Date.now();
 		
 		if(!self.playing) return; // empty sampleBuffer, no prob
@@ -62,9 +62,9 @@ Mad.Player.prototype.createDevice = function() {
 				self.frame = Mad.Frame.decode(self.frame, self.mpeg);
 				if (self.frame == null) {
 					if (self.stream.error == Mad.Error.BUFLEN) {
-						console.log("End of file!");
+						//console.log("End of file!");
 					}
-					console.log("Error! code = " + self.mpeg.error);
+					//console.log("Error! code = " + self.mpeg.error);
 					self.playing = false;
 					self.onProgress(1.0, 1.0, 1.0);
 					self.dev.kill();
@@ -106,15 +106,15 @@ Mad.Player.prototype.progress = function () {
 	var delta = Date.now() - this.lastRebuffer;
 	if(delta > 1000) {
 		// freaking Firefox sometimes fails at scheduling tasks and we lose audio streaming
-		console.log("Device reinit - buffer underflow.");
+		//console.log("Device reinit - buffer underflow.");
 		this.reinitDevice();
 	}
 	
     var playtime = ((this.absoluteFrameIndex * 1152 + this.offset) / this.sampleRate) + delta / 1000.0;
-    //console.log("delta = " + delta + ", contentLength = " + this.stream.state.contentLength + ", this.offset = " + this.mpeg.this_frame);
+    ////console.log("delta = " + delta + ", contentLength = " + this.stream.state.contentLength + ", this.offset = " + this.mpeg.this_frame);
     var total = playtime * this.stream.state.contentLength / this.mpeg.this_frame;
 	var preloaded = this.stream.state.amountRead / this.stream.state.contentLength;
-	//console.log("amountRead = " + this.stream.state.amountRead + ", preloaded = " + preloaded);
+	////console.log("amountRead = " + this.stream.state.amountRead + ", preloaded = " + preloaded);
 	this.onProgress(playtime, total, preloaded);
     
     var that = this;

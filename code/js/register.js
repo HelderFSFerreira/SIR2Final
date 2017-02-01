@@ -21,7 +21,7 @@ $(document).ready(function() {
                     }
                 },
                 error: function (xhr, ajaxOptions, thrownError) {
-                    console.log(xhr);
+                    //console.log(xhr);
                 }
             });
             return msg;
@@ -61,18 +61,18 @@ $(document).ready(function() {
                     email: $('#email').val()
                 },
                 success: function (response) {
-                    console.log(response);
+                    //console.log(response);
                     if (response.status == 1) {
-                        console.log("Registou");
+                        //console.log("Registou");
                         document.location.href = "../index.php";
                     } else {
-                        console.log("NãoRegistou");
+                        //console.log("NãoRegistou");
                     }
                 },
                 error: function (xhr, ajaxOptions, thrownError) {
-                    console.log(xhr);
-                    console.log(ajaxOptions);
-                    console.log(thrownError);
+                    //console.log(xhr);
+                    //console.log(ajaxOptions);
+                    //console.log(thrownError);
                 }
             });
         }

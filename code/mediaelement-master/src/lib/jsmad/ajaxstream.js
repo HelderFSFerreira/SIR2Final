@@ -30,7 +30,7 @@ Mad.AjaxStream = function(url) {
 					try {
 						callback[1]();
 					} catch (e) {
-						console.log(e);
+						//console.log(e);
 					}
                 } else {
                     newCallbacks.push(callback);

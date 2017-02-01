@@ -388,7 +388,7 @@
 
 *2.12.1 (2013/08/26)*
 
-* Remove all `console.log` statements in `Builder.py` @johndyer
+* Remove all `//console.log` statements in `Builder.py` @johndyer
 * More i18n fixes for Wordpress https://github.com/johndyer/mediaelement/pull/940 @SergeyBiryukov
 * Fix touch detection in QtWebKit https://github.com/johndyer/mediaelement/pull/939 @peterbrook
 * Added configuration option httpsBasicAuthSite fix sites using HTTPS basic authentication (benroy73) https://github.com/johndyer/mediaelement/pull/937
@@ -543,7 +543,7 @@ Fixes and updates
 *2.9.2 (2012/07/06) *
 
 * Added a few height checks (from Joe Anderson)
-* Removed console.log statements
+* Removed //console.log statements
 * Better file MIME type detection when the "type" attribute is not set @Seb33300)
 * Pass the event keyCode to the keyActions handler, and make seek interval configurable @bborn
 * Responsive flash fix, YouTube edits @heikki
@@ -665,7 +665,7 @@ Fixes and updates
 * fixed timecode bug with :09 (used radix)
 * fixed bug when long videos end: (try/catch)
 * fixed issue with `alwaysShowControls`
-* removed a `console.log` in fullscreen that broke IE
+* removed a `//console.log` in fullscreen that broke IE
 
 *2.3.2 (2011/11/12) 49.6kb*
 

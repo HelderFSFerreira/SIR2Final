@@ -146,7 +146,7 @@ Object.assign(MediaElementPlayer.prototype, {
 				t.vastParseVastData(data);
 			},
 			error: function (err)  {
-				console.log('vast3:direct:error', err);
+				//console.log('vast3:direct:error', err);
 
 				// fallback to Yahoo proxy
 				t.loadAdTagInfoProxy();
@@ -172,7 +172,7 @@ Object.assign(MediaElementPlayer.prototype, {
 				t.vastParseVastData(data);
 			},
 			error: function (err)  {
-				console.log('vast:proxy:yahoo:error', err);
+				//console.log('vast:proxy:yahoo:error', err);
 			}
 		});
 	},

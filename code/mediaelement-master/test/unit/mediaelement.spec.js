@@ -18,7 +18,7 @@
 // 		'</div>';
 //
 // 		player = new MediaElement(document.body.getElementById('player1'));
-// 		console.log(player.media.originalNode);
+// 		//console.log(player.media.originalNode);
 //
 // 	});
 
@@ -40,8 +40,8 @@
 	// 		src: scripts,
 	// 		done: function (error, window) {
 	// 			var $ = window.$;
-	// 			console.log(error);
-	// 			console.log("there have been", $("video").length, " video tags");
+	// 			//console.log(error);
+	// 			//console.log("there have been", $("video").length, " video tags");
 	// 			window.close();
 	// 			done();
 	// 		}

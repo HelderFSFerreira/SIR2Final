@@ -315,7 +315,7 @@ Mad.ID3v22Stream.prototype.read = function() {
             }
         } catch (e) {
 			throw(e);
-            //console.log("ID3 Error: " + e);
+            ////console.log("ID3 Error: " + e);
         }
     }
     

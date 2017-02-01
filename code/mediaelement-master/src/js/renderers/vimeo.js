@@ -311,7 +311,7 @@ const vimeoIframeRenderer = {
 								}
 								break;
 							default:
-								console.log('vimeo ' + vimeo.id, propName, 'UNSUPPORTED property');
+								//console.log('vimeo ' + vimeo.id, propName, 'UNSUPPORTED property');
 						}
 
 					} else {

@@ -219,11 +219,11 @@ const FlashMediaElementRenderer = {
 							try {
 								flash.flashApi[`fire_${methodName}`]();
 							} catch (e) {
-								console.log(e);
+								//console.log(e);
 							}
 
 						} else {
-							console.log('flash', 'missing method', methodName);
+							//console.log('flash', 'missing method', methodName);
 						}
 					} else {
 						// store for after "READY" event fires

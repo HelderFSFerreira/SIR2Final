@@ -373,7 +373,7 @@
 		}
 		private function log(): void {
 			if (ExternalInterface.available) {
-				ExternalInterface.call('console.log', arguments);
+				ExternalInterface.call('//console.log', arguments);
 			} else {
 				trace(arguments);
 			}

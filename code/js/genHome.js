@@ -26,8 +26,8 @@ function callAjaxHome(){
                     repopulateTablePlaylists();
                 },
                 error: function (xhr, ajaxOptions, thrownError) {
-                    console.log("Erro");
-                    console.log(xhr);
+                    //console.log("Erro");
+                    //console.log(xhr);
                 }
             });
         }
@@ -42,11 +42,11 @@ function callAjaxHome(){
         },
         success: function (response) {
             populateTableplaylists(response.playlists);
-            console.log(response);
+            //console.log(response);
         },
         error: function (xhr, ajaxOptions, thrownError) {
-            console.log("entrei aqui2");
-            console.log(xhr);
+            //console.log("entrei aqui2");
+            //console.log(xhr);
         }
     });
     
@@ -58,14 +58,14 @@ function callAjaxHome(){
             userId: useridphp
         },
         success: function (response) {
-            //console.log(response);
+            ////console.log(response);
             if (response.status!="-1") {
                 Populatetablemusics(response.playlists);
             }
         },
         error: function (xhr, ajaxOptions, thrownError) {
-          console.log("entrei aqui2");
-          //console.log(xhr);
+          //console.log("entrei aqui2");
+          ////console.log(xhr);
         }
     });    
     
@@ -129,7 +129,7 @@ function genTemplateHome(){
 //Carrega playlists
 function populateTableplaylists (playlists) {
     for(i = 0; i < playlists.length; i++){
-        console.log(playlists);
+        //console.log(playlists);
         owner = " - " +playlists[i].username;
         name = playlists[i].name;
         idplay = playlists[i].id;
@@ -162,7 +162,7 @@ function populateTableplaylists (playlists) {
 
 // carrega musicas
 function Populatetablemusics (musics) {
-    console.log("adadaqui");
+    //console.log("adadaqui");
     var count = 0;
     //make table header
     // 1 - criar table lines
@@ -178,7 +178,7 @@ function Populatetablemusics (musics) {
     $("#musicas").append(tablehead);
     tablebody = $("<tbody/>");
     for(i = 0; i < musics.length; i++){
-        console.log("aqui");
+        //console.log("aqui");
         count++;
         //get info
         // 1 - criar table lines
@@ -245,7 +245,7 @@ function removemusica(name,id){
             rePopulatetablemusics();
         },
         error: function (xhr, ajaxOptions, thrownError) {
-            console.log("aqu31231i");
+            //console.log("aqu31231i");
         }
     });
 }
@@ -268,10 +268,10 @@ function adiciona(num){
             musicid : num
         },
         success: function (response) {
-            console.log(response.status);
+            //console.log(response.status);
         },
         error: function (xhr, ajaxOptions, thrownError) {
-            console.log("aqui");
+            //console.log("aqui");
         }
     });
 }
@@ -290,8 +290,8 @@ function repopulateTablePlaylists() {
             populateTableplaylists(response.playlists);
         },
         error: function (xhr, ajaxOptions, thrownError) {
-            console.log("entrei aqui2");
-            console.log(xhr);
+            //console.log("entrei aqui2");
+            //console.log(xhr);
         }
     });
 }
@@ -305,15 +305,15 @@ function rePopulatetablemusics(){
             userId: useridphp
         },
         success: function (response) {
-            //console.log(response);
+            ////console.log(response);
             if (response.status!="-1") {
                 $("#musicas").html("");
                 Populatetablemusics(response.playlists);
             }
         },
         error: function (xhr, ajaxOptions, thrownError) {
-          console.log("entrei aqui2");
-          //console.log(xhr);
+          //console.log("entrei aqui2");
+          ////console.log(xhr);
         }
     });  
 }

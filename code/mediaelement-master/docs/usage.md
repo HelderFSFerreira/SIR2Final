@@ -149,7 +149,7 @@ $('video').mediaelementplayer({
     
         media.addEventListener('hlsMediaAttached', function() {
         
-            console.log('Media attached!');
+            //console.log('Media attached!');
         });
         
         // Manifest file was parsed, invoke loading method

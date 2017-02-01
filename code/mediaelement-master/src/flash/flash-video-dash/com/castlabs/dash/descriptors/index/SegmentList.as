@@ -64,7 +64,7 @@ public class SegmentList implements SegmentIndex {
 
     private function traverseAndBuildSegments(node:XML):Vector.<Object> {
         if (node == null) {
-            throw _context.console.logAndBuildError("Couldn't find any 'SegmentURL' tag");
+            throw _context.//console.logAndBuildError("Couldn't find any 'SegmentURL' tag");
         }
 
         if (node.SegmentList.length() == 1 && node.SegmentList.SegmentURL.length() > 0) {
@@ -82,7 +82,7 @@ public class SegmentList implements SegmentIndex {
 
     private function traverseAndBuildInitializationSegment(node:XML):Object {
         if (node == null) {
-            throw _context.console.logAndBuildError("Couldn't find any 'sourceURL' attribute");
+            throw _context.//console.logAndBuildError("Couldn't find any 'sourceURL' attribute");
         }
 
         if (node.SegmentBase.length() == 1 && node.SegmentBase.Initialization.length() == 1) {
@@ -123,7 +123,7 @@ public class SegmentList implements SegmentIndex {
 
     private function traverseAndBuildBaseUrl(node:XML):String {
         if (node == null) {
-            throw _context.console.logAndBuildError("Couldn't find any 'BaseURL' tag");
+            throw _context.//console.logAndBuildError("Couldn't find any 'BaseURL' tag");
         }
 
         if (node.BaseURL.length() == 1) {
@@ -136,7 +136,7 @@ public class SegmentList implements SegmentIndex {
 
     private function traverseAndBuildDuration(node:XML):Number {
         if (node == null) {
-            throw _context.console.logAndBuildError("Couldn't find any 'duration' attribute");
+            throw _context.//console.logAndBuildError("Couldn't find any 'duration' attribute");
         }
 
         if (node.SegmentList.length() == 1 && node.SegmentList.hasOwnProperty("@duration")) {
@@ -149,7 +149,7 @@ public class SegmentList implements SegmentIndex {
 
     private function traverseAndBuildTimescale(node:XML):Number {
         if (node == null) {
-            throw _context.console.logAndBuildError("Couldn't find any 'timescale' attribute");
+            throw _context.//console.logAndBuildError("Couldn't find any 'timescale' attribute");
         }
 
         if (node.SegmentList.length() == 1 && node.SegmentList.hasOwnProperty("@timescale")) {

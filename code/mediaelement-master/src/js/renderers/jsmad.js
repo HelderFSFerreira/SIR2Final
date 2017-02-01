@@ -133,7 +133,7 @@
 //
 // 							if (t.jsMad !== null) {
 // 								// do stuff here
-// 								console.log('JSMAD TODO', 'SET', propName);
+// 								//console.log('JSMAD TODO', 'SET', propName);
 // 							} else {
 // 								jsmad.apiStack.push({type: 'set', propName: propName, value: value});
 // 							}
@@ -322,7 +322,7 @@
 //
 // 						if (t.jsMad !== null) {
 // 							// do stuff here
-// 							console.log('JSMAD TODO', 'SET', propName);
+// 							//console.log('JSMAD TODO', 'SET', propName);
 // 						} else {
 // 							jsmad.apiStack.push({
 // 								type: 'set',

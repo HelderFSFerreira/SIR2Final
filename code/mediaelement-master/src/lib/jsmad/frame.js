@@ -18,8 +18,8 @@ var bitrate_table /* [5][15] */ = [
 var samplerate_table /* [3] */ = [ 44100, 48000, 32000 ];
 
 var decoder_table = [
-    function() { console.log("Layer I decoding is not implemented!"); },
-    function() { console.log("Layer II decoding is not implemented!"); },
+    function() { //console.log("Layer I decoding is not implemented!"); },
+    function() { //console.log("Layer II decoding is not implemented!"); },
     Mad.layer_III
 ];
 
@@ -239,7 +239,7 @@ Mad.Header.decode = function(stream) {
                 ptr = stream.ptr.nextbyte();
             }
         } catch (e) {
-            console.log("Synchronization error: " + e);
+            //console.log("Synchronization error: " + e);
             
             stream.error = Mad.Error.BUFLEN;
             
@@ -255,7 +255,7 @@ Mad.Header.decode = function(stream) {
         header = Mad.Header.actually_decode(stream);
         if(header == null) return null; // well Duh^2
 
-        // console.log("============= Decoding layer " + header.layer + " audio mode " +
+        // //console.log("============= Decoding layer " + header.layer + " audio mode " +
         //     header.mode + " with " + header.bitrate +
         //     " bps and a samplerate of " + header.samplerate);
 
@@ -264,7 +264,7 @@ Mad.Header.decode = function(stream) {
 
         /* calculate free bit rate */
         if (header.bitrate == 0) {
-            console.log("Uh oh, a free bitrate stream. We're fucked.");
+            //console.log("Uh oh, a free bitrate stream. We're fucked.");
             stream.error = Mad.Error.BADDATAPTR; // best guess
             return null;
             
@@ -285,7 +285,7 @@ Mad.Header.decode = function(stream) {
         } else {
             var slots_per_frame = (header.layer == Mad.Layer.III &&
                    (header.flags & Mad.Flag.LSF_EXT)) ? 72 : 144;
-            //console.log("slots_per_frame = " + slots_per_frame + ", bitrate = " + header.bitrate + ", samplerate = " + header.samplerate);
+            ////console.log("slots_per_frame = " + slots_per_frame + ", bitrate = " + header.bitrate + ", samplerate = " + header.samplerate);
 
             N = ((slots_per_frame * header.bitrate / header.samplerate) << 0) + pad_slot;
         }
@@ -301,7 +301,7 @@ Mad.Header.decode = function(stream) {
 
         stream.next_frame = stream.this_frame + N;
 
-        // console.log("N = " + N + ", pad_slot = " + pad_slot + ", next_frame = " + stream.next_frame);
+        // //console.log("N = " + N + ", pad_slot = " + pad_slot + ", next_frame = " + stream.next_frame);
 
         if (!stream.sync) {
             /* check that a valid frame header follows this frame */

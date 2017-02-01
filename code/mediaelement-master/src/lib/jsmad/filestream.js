@@ -14,7 +14,7 @@ Mad.FileStream = function(file, callback) {
     }
     
     reader.onerror = function () {
-        console.log("Error!");
+        //console.log("Error!");
     }
     
     reader.readAsBinaryString(file);

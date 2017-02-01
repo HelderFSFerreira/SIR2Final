@@ -31,13 +31,13 @@ window.fbAsyncInit = function() {
         
         function login(){
             FB.login(function(response){
-                console.log("ola");$("#status").html("dada");
+                //console.log("ola");$("#status").html("dada");
             });
         }
 
 function logout(){
         FB.logout(function(response) {
-            console.log("fez logout");
+            //console.log("fez logout");
         });
 }
 

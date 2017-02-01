@@ -282,7 +282,7 @@ Mad.III_huffdecode = function(ptr, xr /* Float64Array(576) */, channel, sfbwidth
     cachesz += ((32 - 1 - 24) + (24 - cachesz)) & ~7;
     
     bitcache   = peek.read(cachesz);
-    //console.log("bitcache peek.read = " + bitcache);
+    ////console.log("bitcache peek.read = " + bitcache);
     bits_left -= cachesz;
 
     xrptr = 0;
@@ -315,7 +315,7 @@ Mad.III_huffdecode = function(ptr, xr /* Float64Array(576) */, channel, sfbwidth
             var clumpsz, value;
             var requantized;
 
-            //console.log("big_values = " + big_values + ", cachesz = " + cachesz + ", bits_left = " + bits_left);
+            ////console.log("big_values = " + big_values + ", cachesz = " + cachesz + ", bits_left = " + bits_left);
 
             if (xrptr == sfbound) {
                 sfbound += sfbwidth[sfbwidthptr++];
@@ -479,12 +479,12 @@ Mad.III_huffdecode = function(ptr, xr /* Float64Array(576) */, channel, sfbwidth
             }
 
             xrptr += 2;
-            //console.log("big_values = " + big_values + ", cachesz = " + cachesz +
+            ////console.log("big_values = " + big_values + ", cachesz = " + cachesz +
             //  ", bits_left = " + bits_left + ", xrptr = " + xrptr);
         }
     }
 
-    //console.log("bits_left (before big_values overrun) = " + bits_left);
+    ////console.log("bits_left (before big_values overrun) = " + bits_left);
 
     if (cachesz + bits_left < 0)
         return Mad.Error.BADHUFFDATA;  /* big_values overrun */
@@ -559,7 +559,7 @@ Mad.III_huffdecode = function(ptr, xr /* Float64Array(576) */, channel, sfbwidth
 
         if (cachesz + bits_left < 0) {
             //# if 0 && defined(DEBUG)
-            //console.log("huffman count1 overrun (" + (-(cachesz + bits_left)) + " bits)");
+            ////console.log("huffman count1 overrun (" + (-(cachesz + bits_left)) + " bits)");
             //# endif
 
             /* technically the bitstream is misformatted, but apparently
@@ -575,11 +575,11 @@ Mad.III_huffdecode = function(ptr, xr /* Float64Array(576) */, channel, sfbwidth
     /*
       # if 0 && defined(DEBUG)
       if (bits_left < 0)
-      console.log("read " + (-bits_left) + " bits too many");
+      //console.log("read " + (-bits_left) + " bits too many");
       else if (cachesz + bits_left > 0)
-      console.log((cachesz + bits_left) + " stuffing bits");
+      //console.log((cachesz + bits_left) + " stuffing bits");
       else
-      console.log("bits_left " + bits_left);
+      //console.log("bits_left " + bits_left);
       # endif
     */
 
@@ -1263,7 +1263,7 @@ Mad.layer_III = function (stream, frame) {
     var data_bitlen = sideinfoResult.data_bitlen;
     var priv_bitlen = sideinfoResult.priv_bitlen;
     
-    //console.log("We're at " + stream.ptr.offset + ", data_bitlen = " + data_bitlen + ", priv_bitlen = " + priv_bitlen);
+    ////console.log("We're at " + stream.ptr.offset + ", data_bitlen = " + data_bitlen + ", priv_bitlen = " + priv_bitlen);
     
     if (error && result == 0) {
         stream.error = error;
@@ -1290,14 +1290,14 @@ Mad.layer_III = function (stream, frame) {
     /* find main_data of this frame */
     frame_space = stream.next_frame - stream.ptr.nextbyte();
 
-    //console.log("next_frame = " + stream.next_frame + ", nextbyte = " + stream.ptr.nextbyte() + ", frame_space = " + frame_space);
+    ////console.log("next_frame = " + stream.next_frame + ", nextbyte = " + stream.ptr.nextbyte() + ", frame_space = " + frame_space);
 
-    //console.log("before, next_md_begin = " + next_md_begin);
+    ////console.log("before, next_md_begin = " + next_md_begin);
 
     if (next_md_begin > si.main_data_begin + frame_space)
         next_md_begin = 0;
 
-    //console.log("so far, md_len = " + md_len + ", si.main_data_begin = " + si.main_data_begin + ", frame_space = " + frame_space + ", next_md_begin = " + next_md_begin);
+    ////console.log("so far, md_len = " + md_len + ", si.main_data_begin = " + si.main_data_begin + ", frame_space = " + frame_space + ", next_md_begin = " + next_md_begin);
     
     md_len = si.main_data_begin + frame_space - next_md_begin;
 
@@ -1309,7 +1309,7 @@ Mad.layer_III = function (stream, frame) {
 
         frame_used = md_len;
     } else {
-        //console.log("si.main_data_begin = " + si.main_data_begin + ", stream.md_len = " + stream.md_len);
+        ////console.log("si.main_data_begin = " + si.main_data_begin + ", stream.md_len = " + stream.md_len);
         if (si.main_data_begin > stream.md_len) {
             if (result == 0) {
                 stream.error = Mad.Error.BADDATAPTR;
@@ -1360,7 +1360,7 @@ Mad.layer_III = function (stream, frame) {
     
     // DEBUG
     /*
-      console.log(
+      //console.log(
       "main_data_begin:" + si.main_data_begin +
       ", md_len:" + md_len +
       ", frame_free:" + frame_free +

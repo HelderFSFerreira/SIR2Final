@@ -23,8 +23,8 @@ function callAjaxMusic(playlistid){
             }
         },
         error: function (xhr, ajaxOptions, thrownError) {
-            console.log("entrei aqui2");
-            //console.log(xhr);
+            //console.log("entrei aqui2");
+            ////console.log(xhr);
         }
     });
     
@@ -41,12 +41,12 @@ function callAjaxMusic(playlistid){
                 if (response.status==1) {
                     window.location.replace("home.php");
                 } else {
-                    console.log("Status2");
+                    //console.log("Status2");
                 }
             },
             error: function (xhr, ajaxOptions, thrownError) {
-                console.log("Erro");
-                console.log(xhr);
+                //console.log("Erro");
+                //console.log(xhr);
             }
         });
     });
@@ -150,7 +150,7 @@ function populateTable (musicas, pla) {
 
             // 2 - inserir as rows
 
-            console.log(musica);
+            //console.log(musica);
             tablerow = $("<tr/>");
             tablerow.append(tableplay).append(tableline1).append(tableline2).append(tableremove);
             tablebody.append(tablerow);
@@ -185,8 +185,8 @@ function remove(idmusica){
             callMusicTemplate(playlist);
         },
         error: function (xhr, ajaxOptions, thrownError) {
-            console.log("entrei aqui2");
-            //console.log(xhr);
+            //console.log("entrei aqui2");
+            ////console.log(xhr);
         }
     });
 }
@@ -211,17 +211,17 @@ $('#userToShare').on('focus', function() {
                             arrayUsers.push(res.username);
                         });
                     }
-                    console.log(arrayUsers);
+                    //console.log(arrayUsers);
                     response(arrayUsers);
                 },
                 error: function (xhr, ajaxOptions, thrownError) {
-                    console.log(thrownError);
+                    //console.log(thrownError);
                 }
             });
         },
         select: function (a, b) {
-            console.log(a);
-            console.log(b);
+            //console.log(a);
+            //console.log(b);
         }
     });
 });
@@ -240,9 +240,9 @@ $('#addUserShare').click(function () {
                 refillTableUsersShared();
             },
             error: function (xhr, ajaxOptions, thrownError) {
-                console.log($('#userToShare').val());
-                console.log(playlist);
-                console.log(xhr);
+                //console.log($('#userToShare').val());
+                //console.log(playlist);
+                //console.log(xhr);
             }
         });
     }
@@ -276,7 +276,7 @@ function fillTableUsersShared(users) {
 }
 
 function removeSharedUser(usrid) {
-    console.log("Entrei");
+    //console.log("Entrei");
     $.ajax({
         type: 'POST',
         url: '../ws/delUserPlaylist.php',
@@ -289,8 +289,8 @@ function removeSharedUser(usrid) {
             refillTableUsersShared();
         },
         error: function (xhr, ajaxOptions, thrownError) {
-            console.log(thrownError);
-            console.log(playlist);
+            //console.log(thrownError);
+            //console.log(playlist);
         }
     });
 }
@@ -310,8 +310,8 @@ function refillTableUsersShared() {
             }
         },
         error: function (xhr, ajaxOptions, thrownError) {
-            console.log(thrownError);
-            console.log(playlist);
+            //console.log(thrownError);
+            //console.log(playlist);
         }
     });
 }
@@ -327,7 +327,7 @@ function verifica(idpla, idus){
         success: function(data) {
             dat = parseInt(data.owner);
             if(dat != idus){
-                console.log("aqui");
+                //console.log("aqui");
                 $("#btnRemovePlaylist").attr("disabled","true").hide();
                 $("#btnSharePlaylist").attr("disabled","true").hide();
             }else{
@@ -337,7 +337,7 @@ function verifica(idpla, idus){
             btnSharePlaylist*/
         },
         error: function (xhr, ajaxOptions, thrownError) {
-            console.log("erro!");
+            //console.log("erro!");
         }
     });
     

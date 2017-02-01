@@ -1295,7 +1295,7 @@ Mad.Synth.prototype.frame = function (frame) {
     this.pcm.channels   = nch;
     this.pcm.length     = 32 * ns;
 
-    // console.log("ns: " + ns);
+    // //console.log("ns: " + ns);
 
     /*
      if (frame.options & Mad.Option.HALFSAMPLERATE) {
